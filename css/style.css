@@ -803,3 +803,546 @@ ul {
   opacity: 1;
   transform: translateY(0);
 }
+
+/* ============================================================
+   ============================================================
+   COMMIT 4 : Bento Grid, sections hero et catégories, effets hover
+   ============================================================
+   ============================================================ */
+
+/* ============================================================
+   SECTION HERO
+   ============================================================ */
+
+/*
+   .hero-section — section principale de la page d'accueil.
+
+   padding: var(--spacing-section) 0 60px
+   → 80px en haut (via variable), 60px en bas.
+   Le bas est moins grand car les stats viennent juste après.
+
+   overflow: hidden
+   → empêche les éléments débordants (image) de créer
+   une barre de défilement horizontale.
+*/
+.hero-section {
+  padding: var(--spacing-section) 0 60px;
+  overflow: hidden;
+}
+/*
+   .hero-title — H1 principal du hero.
+
+   font-size: clamp(2.5rem, 5vw, 4rem)
+   → taille FLUIDE entre 40px et 64px.
+   clamp(min, valeur-idéale, max) :
+   - min : jamais en dessous de 40px (mobile)
+   - 5vw : 5% de la largeur du viewport (responsive)
+   - max : jamais au-dessus de 64px (desktop)
+   C'est la typographie expressive demandée dans le sujet.
+
+   font-weight: 800 → extra-gras.
+   line-height: 1.1 → très compacte pour les grands titres.
+   margin-bottom: 1.5rem → espace avant le sous-titre.
+*/
+.hero-title {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 800;
+  line-height: 1.1;
+  color: var(--color-secondary);
+  margin-bottom: 1.5rem;
+}
+/*
+   .hero-title span — partie en orange dans le titre.
+   "connecté au monde." s'affiche en orange de marque.
+*/
+.hero-title span {
+  color: var(--color-primary);
+}
+
+/*
+   .hero-subtitle — H2 sous le titre principal.
+
+   font-weight: 400 → poids normal, contrairement au H2 global (700).
+   On surcharge pour que le sous-titre ne soit pas trop agressif.
+
+   color: #64748b → gris moyen, crée une hiérarchie visuelle.
+   max-width: 540px → ligne de texte confortable à lire.
+   margin-bottom: 2.5rem → espace généreux avant les boutons.
+*/
+.hero-subtitle {
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: #64748b;
+  margin-bottom: 2.5rem;
+  max-width: 540px;
+}
+/*
+   .hero-buttons — conteneur des deux boutons CTA.
+
+   display: flex → boutons côte à côte sur desktop.
+   flex-wrap: wrap → sur mobile, ils passent à la ligne si besoin.
+   gap: 1rem → espace entre les deux boutons.
+*/
+.hero-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 3rem;
+}
+/*
+   .hero-img — illustration côté droit de la disposition asymétrique.
+
+   width: 100% → prend toute la largeur de sa colonne Bootstrap.
+   max-width: 500px → plafond sur grand écran.
+   margin: 0 auto → centrage si l'image est plus étroite.
+   border-radius: var(--border-radius) → coins arrondis.
+*/
+.hero-img {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  border-radius: var(--border-radius);
+}
+/*
+   .stats-row — ligne des 3 statistiques sous le hero.
+
+   margin-top: 3rem → séparation du contenu hero.
+   padding-top: 3rem → espace interne au-dessus des chiffres.
+   border-top: 1px solid #e2e8f0 → ligne de séparation gris clair
+   entre la partie texte/image et les statistiques.
+*/
+.stats-row {
+  margin-top: 3rem;
+  padding-top: 3rem;
+  border-top: 1px solid #e2e8f0;
+}
+
+/*
+   .stat-card — carte individuelle d'une statistique.
+   padding: var(--spacing-card) → 24px de padding interne.
+*/
+.stat-card {
+  padding: var(--spacing-card);
+}
+/*
+   .stat-number — le chiffre (ex: "2500").
+
+   display: block → chaque élément sur sa propre ligne.
+   font-size: clamp(2rem, 4vw, 3rem) → taille fluide.
+   font-weight: 800 → extra-gras, très impactant.
+   color: var(--color-primary) → orange de marque.
+   font-family: var(--font-heading) → police Syne pour l'impact.
+   line-height: 1 → sans espace vertical supplémentaire.
+   margin-bottom: 0.5rem → petit espace avant le label.
+*/
+.stat-number {
+  display: block;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  color: var(--color-primary);
+  font-family: var(--font-heading);
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+/*
+   .stat-label — libellé sous le chiffre (ex: "Freelances inscrits").
+
+   display: block → sur sa propre ligne.
+   font-size: 0.95rem → légèrement plus petit.
+   color: #64748b → gris discret.
+   font-weight: 500 → semi-gras pour la lisibilité.
+*/
+.stat-label {
+  display: block;
+  font-size: 0.95rem;
+  color: #64748b;
+  font-weight: 500;
+}
+/* ============================================================
+   SECTION "COMMENT ÇA MARCHE" — BENTO GRID
+   ============================================================ */
+
+/*
+   .how-section — section avec les 4 étapes.
+
+   background-color: #f1f5f9
+   → fond légèrement grisé pour créer une alternance visuelle
+   avec les sections blanches. Technique classique pour rythmer la page.
+*/
+.how-section {
+  padding: var(--spacing-section) 0;
+  background-color: #f1f5f9;
+}
+/*
+   .bento-grid — le conteneur principal du Bento Grid.
+
+   display: grid → active CSS Grid (layout en grille).
+
+   grid-template-columns: repeat(3, 1fr)
+   → 3 colonnes de largeur ÉGALE.
+   1fr = 1 fraction de l'espace disponible.
+   repeat(3, 1fr) = répète 3 fois "1fr" → 3 colonnes égales.
+
+   grid-auto-rows: auto
+   → les lignes s'adaptent à la hauteur de leur contenu.
+
+   gap: 1.5rem → 24px d'espace entre toutes les cellules.
+   margin-top: 3rem → espace entre le titre et la grille.
+*/
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: auto;
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+/*
+   .bento-card — carte standard dans la grille Bento.
+
+   background-color: #ffffff → fond blanc sur fond grisé.
+   border-radius: var(--border-radius) → coins arrondis (12px).
+   padding: var(--spacing-card) → 24px de padding.
+   box-shadow: var(--shadow-card) → ombre légère.
+   transition → prépare l'animation au survol.
+*/
+.bento-card {
+  background-color: #ffffff;
+  border-radius: var(--border-radius);
+  padding: var(--spacing-card);
+  box-shadow: var(--shadow-card);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+/*
+   Au survol : la carte monte légèrement et l'ombre s'intensifie.
+   transform: translateY(-4px) → déplacement de 4px vers le haut.
+*/
+.bento-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-hover);
+}
+/*
+   .bento-large — grande carte qui occupe 2 colonnes sur 3.
+
+   grid-column: span 2
+   → cette carte s'étend sur 2 colonnes.
+   span = "s'étendre sur".
+
+   Résultat visuel de la grille :
+   Ligne 1 : [Étape 1 — bento-large (2 col)] [Étape 2 (1 col)]
+   Ligne 2 : [Étape 3 (1 col)] [Étape 4 — bento-large (2 col)]
+
+   C'est la disposition asymétrique du Bento Grid demandée dans le sujet.
+*/
+.bento-large {
+  grid-column: span 2;
+}
+/*
+   .step-number — numéro décoratif de l'étape (01, 02...).
+
+   font-size: 3.5rem → très grand, effet décoratif.
+   color: rgba(249, 115, 22, 0.15) → orange à 15% d'opacité.
+   L'effet : grand numéro décoratif quasi-transparent en fond.
+   font-family: var(--font-heading) → Syne pour l'impact.
+*/
+.step-number {
+  display: block;
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: rgba(249, 115, 22, 0.15);
+  font-family: var(--font-heading);
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+/*
+   .step-icon — icône Bootstrap Icons de chaque étape.
+
+   font-size: 2rem → 32px.
+   color: var(--color-primary) → orange.
+   display: block → sur sa propre ligne.
+   margin-bottom: 1rem → espace avant le titre.
+*/
+.step-icon {
+  font-size: 2rem;
+  color: var(--color-primary);
+  display: block;
+  margin-bottom: 1rem;
+}
+/*
+   .bento-card h3 — titre de chaque étape.
+   font-size: 1.2rem → légèrement plus grand que les cartes standard.
+   margin-bottom: 0.75rem → espace avant la description.
+*/
+.bento-card h3 {
+  font-size: 1.2rem;
+  color: var(--color-secondary);
+  margin-bottom: 0.75rem;
+}
+/*
+   Paragraphes dans les cartes bento.
+   color: #64748b → gris moyen pour les descriptions.
+   font-size: 0.95rem → légèrement plus petit.
+   margin-bottom: 0 → supprime la marge par défaut des p.
+*/
+.bento-card p {
+  color: #64748b;
+  font-size: 0.95rem;
+  margin-bottom: 0;
+}
+/* ============================================================
+   SECTION CATÉGORIES DE SERVICES — EFFETS HOVER
+   ============================================================ */
+
+/*
+   .categories-section — section des 6 catégories.
+   padding: 80px via la variable.
+*/
+.categories-section {
+  padding: var(--spacing-section) 0;
+}
+/*
+   .category-card — carte d'une catégorie de service.
+
+   background-color: #ffffff → fond blanc.
+   border-radius: var(--border-radius) → 12px.
+   padding: 2rem → 32px, plus généreux que les cartes standard.
+   text-align: center → icône, titre et compteur centrés.
+
+   border: 2px solid transparent
+   → bordure INVISIBLE par défaut.
+   Elle deviendra orange au survol pour un effet d'accentuation.
+
+   cursor: pointer → curseur main au survol.
+   box-shadow: var(--shadow-card) → ombre légère.
+   transition: all 0.3s ease → anime TOUS les changements au survol.
+   display: block; width: 100% → la carte prend toute la largeur
+   de sa colonne Bootstrap.
+*/
+.category-card {
+  background-color: #ffffff;
+  border-radius: var(--border-radius);
+  padding: 2rem;
+  text-align: center;
+  border: 2px solid transparent;
+  cursor: pointer;
+  box-shadow: var(--shadow-card);
+  transition: all 0.3s ease;
+  display: block;
+  width: 100%;
+}
+/*
+   EFFETS HOVER sur les cartes catégorie (demandé explicitement dans le sujet) :
+
+   transform: translateY(-8px) → monte de 8px (plus prononcé que bento).
+   box-shadow: var(--shadow-hover) → ombre orangée.
+   border-color: var(--color-primary) → la bordure invisible devient orange.
+   background-color → léger fond orangé (3% d'opacité).
+*/
+.category-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-hover);
+  border-color: var(--color-primary);
+  background-color: rgba(249, 115, 22, 0.03);
+}
+/*
+   .category-icon — icône de la catégorie.
+
+   font-size: 3rem → 48px, grande et visible.
+   color: var(--color-primary) → orange.
+   display: block → sur sa propre ligne.
+   margin-bottom: 1rem → espace avant le titre.
+   transition → prépare l'animation de scale au survol.
+*/
+.category-icon {
+  font-size: 3rem;
+  color: var(--color-primary);
+  display: block;
+  margin-bottom: 1rem;
+  transition: transform 0.3s ease;
+}
+/*
+   Au survol de la carte, l'icône grossit de 20%.
+   transform: scale(1.2) → scale = mise à l'échelle.
+   1.2 = 120% de la taille originale.
+   On cible .category-icon à l'intérieur de .category-card:hover.
+*/
+.category-card:hover .category-icon {
+  transform: scale(1.2);
+}
+/*
+   Titre de la catégorie dans la carte.
+*/
+.category-card h3 {
+  font-size: 1.1rem;
+  color: var(--color-secondary);
+  margin-bottom: 0.5rem;
+}
+/*
+   .freelance-count — "342 freelances disponibles".
+
+   font-size: 0.875rem → 14px, texte discret.
+   color: #64748b → gris moyen.
+*/
+.freelance-count {
+  font-size: 0.875rem;
+  color: #64748b;
+}
+/* ============================================================
+   SECTION TÉMOIGNAGES — CAROUSEL BOOTSTRAP
+   ============================================================ */
+
+/*
+   .testimonials-section — fond grisé pour alterner avec blanc.
+*/
+.testimonials-section {
+  background-color: #f1f5f9;
+  padding: var(--spacing-section) 0;
+}
+/*
+   .testimonial-card — carte d'un témoignage.
+
+   max-width: 700px; margin: 0 auto → centrage horizontal.
+   padding: 3rem → 48px, généreux pour les citations.
+   box-shadow → ombre légère sur fond grisé.
+*/
+.testimonial-card {
+  background-color: #ffffff;
+  border-radius: var(--border-radius);
+  padding: 3rem;
+  max-width: 700px;
+  margin: 0 auto;
+  box-shadow: var(--shadow-card);
+}
+/*
+   .testimonial-avatar — photo ronde du témoignant.
+
+   width: 80px; height: 80px → dimensions fixes.
+   border-radius: 50% → forme parfaitement ronde.
+   object-fit: cover → remplit le cercle sans déformer l'image.
+   margin: 0 auto 1.5rem → centrage + espace sous la photo.
+   border: 3px solid var(--color-primary) → bordure orange.
+*/
+.testimonial-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 0 auto 1.5rem;
+  border: 3px solid var(--color-primary);
+}
+/*
+   blockquote — citation du témoignant.
+
+   font-style: italic → convention typographique pour les citations.
+   color: #475569 → gris moyen.
+   line-height: 1.8 → interligne généreuse pour les citations longues.
+*/
+blockquote {
+  font-size: 1.1rem;
+  color: #475569;
+  font-style: italic;
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+}
+
+blockquote p {
+  margin-bottom: 0;
+}
+/*
+   cite — nom et rôle du témoignant.
+   display: block → sur sa propre ligne.
+*/
+cite {
+  display: block;
+}
+/* Nom en gras, bleu foncé */
+cite strong {
+  display: block;
+  color: var(--color-secondary);
+  font-size: 1rem;
+  margin-bottom: 0.25rem;
+}
+/* Rôle en petit gris discret */
+cite span {
+  font-size: 0.875rem;
+  color: #64748b;
+}
+/*
+   .stars — conteneur des étoiles de notation.
+
+   display: flex; justify-content: center → étoiles centrées.
+   gap: 0.25rem → petit espace entre chaque étoile.
+   color: var(--color-primary) → étoiles orange.
+*/
+.stars {
+  margin-top: 1rem;
+  color: var(--color-primary);
+  font-size: 1.2rem;
+  display: flex;
+  justify-content: center;
+  gap: 0.25rem;
+}
+/*
+   Flèches du carousel Bootstrap en orange.
+   filter: → combinaison de filtres CSS pour teinter les flèches.
+   invert → inverse les couleurs (noir → blanc).
+   sepia, saturate, hue-rotate → ajuste vers l'orange.
+*/
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  filter: invert(50%) sepia(100%) saturate(500%) hue-rotate(350deg);
+}
+
+/* ============================================================
+   SECTION CTA (Appel à l'action)
+   ============================================================ */
+
+/*
+   .cta-section — bandeau orange avant le footer.
+
+   background-color: var(--color-primary) → fond orange.
+   color: #ffffff → texte blanc.
+   text-align: center → tout centré.
+*/
+.cta-section {
+  background-color: var(--color-primary);
+  color: #ffffff;
+  padding: var(--spacing-section) 0;
+  text-align: center;
+}
+/*
+   H2 et P dans le CTA : blanc.
+   Sans surcharge, la règle globale les mettrait en bleu foncé.
+*/
+.cta-section h2 {
+  color: #ffffff;
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+}
+
+.cta-section p {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+/*
+   .btn-light dans le CTA — bouton blanc sur fond orange.
+
+   color: var(--color-primary) → texte orange sur bouton blanc.
+   Au survol → fond bleu foncé, texte blanc (changement complet).
+*/
+.btn-light {
+  color: var(--color-primary) !important;
+  font-weight: 700;
+  border-radius: 50px;
+  padding: 0.75rem 2rem;
+  transition: all 0.3s ease;
+}
+
+.btn-light:hover {
+  background-color: var(--color-secondary) !important;
+  color: #ffffff !important;
+  transform: translateY(-2px);
+}
