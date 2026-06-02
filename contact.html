@@ -4,6 +4,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>AfriTalent — Contact</title>
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Bootstrap Icons -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+      rel="stylesheet"
+    />
     <!-- Bootstrap 5 via CDN : feuille de style -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
@@ -14,11 +24,380 @@
   </head>
   <body>
     <!-- Le contenu de la page sera ajoute ici -->
+    <!-- ===================== NAVBAR ===================== -->
+    <header>
+      <nav class="navbar navbar-expand-lg fixed-top" id="navbar">
+        <div class="container">
+          <a class="navbar-brand" href="index.html">
+            <img
+              src="images/Gemini_Generated_Image_jtmrt1jtmrt1jtmr.png"
+              alt="Logo AfriTalent"
+              height="40"
+            />
+            AfriTalent
+          </a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navMenu"
+            aria-controls="navMenu"
+            aria-expanded="false"
+            aria-label="Ouvrir le menu de navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navMenu">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="index.html">Accueil</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="freelances.html">Freelances</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="tarifs.html">Tarifs</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="about.html">À propos</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="blog.html">Blog</a>
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link active"
+                  aria-current="page"
+                  href="contact.html"
+                  >Contact</a
+                >
+              </li>
+            </ul>
+            <button
+              class="btn btn-outline-secondary ms-3"
+              id="darkModeToggle"
+              aria-label="Activer le mode sombre"
+            >
+              <i class="bi bi-moon-fill"></i>
+            </button>
+            <a href="freelances.html" class="btn btn-primary ms-3"
+              >Rejoindre AfriTalent</a
+            >
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <!-- ===================== EN-TÊTE DE PAGE ===================== -->
+      <section class="page-header">
+        <div class="container text-center">
+          <h1>Contactez-nous</h1>
+          <p>
+            Une question, une suggestion ou un partenariat à proposer ? Nous
+            vous répondons sous 24h.
+          </p>
+        </div>
+      </section>
+      <!-- ===================== FORMULAIRE + INFOS DE CONTACT ===================== -->
+      <section class="contact-section">
+        <div class="container">
+          <div class="row g-5">
+            <!-- Formulaire de contact -->
+            <div class="col-lg-7">
+              <div class="contact-form-wrapper">
+                <h2>Envoyer un message</h2>
+
+                <!-- Formulaire (validation JS au commit 8) -->
+                <form id="contactForm" novalidate>
+                  <!-- Nom et Prénom -->
+                  <div class="row g-3 mb-3">
+                    <div class="col-md-6">
+                      <label for="nom" class="form-label"
+                        >Nom <span aria-hidden="true">*</span></label
+                      >
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="nom"
+                        name="nom"
+                        placeholder="Votre nom"
+                        required
+                      />
+                      <!-- Message d'erreur (affiché par JS) -->
+                      <div
+                        class="invalid-feedback"
+                        id="nom-error"
+                        role="alert"
+                      ></div>
+                    </div>
+                    <div class="col-md-6">
+                      <label for="prenom" class="form-label"
+                        >Prénom <span aria-hidden="true">*</span></label
+                      >
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="prenom"
+                        name="prenom"
+                        placeholder="Votre prénom"
+                        required
+                      />
+                      <div
+                        class="invalid-feedback"
+                        id="prenom-error"
+                        role="alert"
+                      ></div>
+                    </div>
+                  </div>
+
+                  <!-- Email -->
+                  <div class="mb-3">
+                    <label for="email" class="form-label"
+                      >Email <span aria-hidden="true">*</span></label
+                    >
+                    <input
+                      type="email"
+                      class="form-control"
+                      id="email"
+                      name="email"
+                      placeholder="votre@email.com"
+                      required
+                    />
+                    <div
+                      class="invalid-feedback"
+                      id="email-error"
+                      role="alert"
+                    ></div>
+                  </div>
+
+                  <!-- Sujet -->
+                  <div class="mb-3">
+                    <label for="sujet" class="form-label"
+                      >Sujet <span aria-hidden="true">*</span></label
+                    >
+                    <select
+                      class="form-select"
+                      id="sujet"
+                      name="sujet"
+                      required
+                    >
+                      <option value="" disabled selected>
+                        Choisissez un sujet
+                      </option>
+                      <option value="inscription">Inscription / Compte</option>
+                      <option value="mission">Trouver une mission</option>
+                      <option value="paiement">Paiement / Facturation</option>
+                      <option value="partenariat">Partenariat</option>
+                      <option value="signalement">Signaler un problème</option>
+                      <option value="autre">Autre</option>
+                    </select>
+                    <div
+                      class="invalid-feedback"
+                      id="sujet-error"
+                      role="alert"
+                    ></div>
+                  </div>
+
+                  <!-- Message -->
+                  <div class="mb-4">
+                    <label for="message" class="form-label"
+                      >Message <span aria-hidden="true">*</span></label
+                    >
+                    <textarea
+                      class="form-control"
+                      id="message"
+                      name="message"
+                      rows="6"
+                      placeholder="Décrivez votre demande (20 caractères minimum)..."
+                      required
+                      minlength="20"
+                    ></textarea>
+                    <div
+                      class="invalid-feedback"
+                      id="message-error"
+                      role="alert"
+                    ></div>
+                  </div>
+
+                  <!-- Bouton d'envoi -->
+                  <button type="submit" class="btn btn-primary btn-lg w-100">
+                    <i class="bi bi-send-fill me-2" aria-hidden="true"></i>
+                    Envoyer le message
+                  </button>
+
+                  <!-- Message de succès (affiché par JS après soumission) -->
+                  <div
+                    class="success-message"
+                    id="successMessage"
+                    role="status"
+                    aria-live="polite"
+                    style="display: none"
+                  >
+                    <i class="bi bi-check-circle-fill" aria-hidden="true"></i>
+                    <strong>Message envoyé !</strong> Merci de nous avoir
+                    contacté. Nous vous répondrons sous 24h.
+                  </div>
+                </form>
+              </div>
+            </div>
+
+            <!-- Informations de contact -->
+            <aside class="col-lg-5">
+              <div class="contact-info-wrapper">
+                <h2>Nos coordonnées</h2>
+
+                <ul class="contact-info-list">
+                  <li>
+                    <i
+                      class="bi bi-geo-alt-fill contact-icon"
+                      aria-hidden="true"
+                    ></i>
+                    <div>
+                      <strong>Adresse</strong>
+                      <p>12 Avenue Cheikh Anta Diop<br />Dakar, Sénégal</p>
+                    </div>
+                  </li>
+                  <li>
+                    <i
+                      class="bi bi-telephone-fill contact-icon"
+                      aria-hidden="true"
+                    ></i>
+                    <div>
+                      <strong>Téléphone</strong>
+                      <p>+221 71 004 38 40</p>
+                    </div>
+                  </li>
+                  <li>
+                    <i
+                      class="bi bi-envelope-fill contact-icon"
+                      aria-hidden="true"
+                    ></i>
+                    <div>
+                      <strong>Email</strong>
+                      <p>contact@afritalent.africa</p>
+                    </div>
+                  </li>
+                  <li>
+                    <i
+                      class="bi bi-clock-fill contact-icon"
+                      aria-hidden="true"
+                    ></i>
+                    <div>
+                      <strong>Horaires d'ouverture</strong>
+                      <p>
+                        Lundi à Vendredi : 8h00 à 18h00<br />Samedi : 9h00 à
+                        13h00
+                      </p>
+                    </div>
+                  </li>
+                </ul>
+
+                <!-- Carte Google Maps intégrée -->
+                <div class="map-wrapper">
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3859.3!2d-17.4473!3d14.6937!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTTCsDQxJzM3LjMiTiAxN8KwMjYnNTAuMyJX!5e0!3m2!1sfr!2ssn!4v1234567890"
+                    width="100"
+                    height="250"
+                    style="border: 0"
+                    allowfullscreen=""
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"
+                    title="Localisation du bureau AfriTalent à Dakar"
+                  >
+                  </iframe>
+                </div>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </section>
+    </main>
+    <!-- ===================== FOOTER ===================== -->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-lg-3 col-md-6">
+            <img
+              src="images/Gemini_Generated_Image_jtmrt1jtmrt1jtmr.png"
+              alt="Logo AfriTalent"
+              height="35"
+              class="mb-3"
+            />
+            <h3 class="footer-brand">AfriTalent</h3>
+            <p>
+              La plateforme de référence pour connecter les freelances tech
+              africains aux meilleures opportunités mondiales.
+            </p>
+            <div class="social-links">
+              <a href="#" aria-label="Facebook AfriTalent"
+                ><i class="bi bi-facebook" aria-hidden="true"></i
+              ></a>
+              <a href="#" aria-label="Twitter AfriTalent"
+                ><i class="bi bi-twitter-x" aria-hidden="true"></i
+              ></a>
+              <a href="#" aria-label="LinkedIn AfriTalent"
+                ><i class="bi bi-linkedin" aria-hidden="true"></i
+              ></a>
+              <a href="#" aria-label="Instagram AfriTalent"
+                ><i class="bi bi-instagram" aria-hidden="true"></i
+              ></a>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <h4 class="footer-title">Liens utiles</h4>
+            <ul class="footer-links">
+              <li><a href="index.html">Accueil</a></li>
+              <li><a href="freelances.html">Trouver un freelance</a></li>
+              <li><a href="tarifs.html">Nos tarifs</a></li>
+              <li><a href="about.html">À propos</a></li>
+              <li><a href="contact.html">Contact</a></li>
+            </ul>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <h4 class="footer-title">Ressources</h4>
+            <ul class="footer-links">
+              <li><a href="#">Blog</a></li>
+              <li><a href="#">Guide du freelance</a></li>
+              <li><a href="#">Centre d'aide</a></li>
+              <li><a href="#">Politique de confidentialité</a></li>
+              <li><a href="#">Conditions d'utilisation</a></li>
+            </ul>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <h4 class="footer-title">Contact</h4>
+            <ul class="footer-contact">
+              <li>
+                <i class="bi bi-geo-alt-fill" aria-hidden="true"></i> 12 Avenue
+                Cheikh Anta Diop, Dakar
+              </li>
+              <li>
+                <i class="bi bi-telephone-fill" aria-hidden="true"></i> +221 71
+                004 38 40
+              </li>
+              <li>
+                <i class="bi bi-envelope-fill" aria-hidden="true"></i>
+                contact@afritalent.africa
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom text-center">
+          <p>
+            &copy; <span id="currentYear"></span> AfriTalent. Tous droits
+            réservés.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <button id="backToTop" aria-label="Retour en haut de page">
+      <i class="bi bi-arrow-up" aria-hidden="true"></i>
+    </button>
+
     <!-- Bootstrap 5 via CDN : script JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Votre script JavaScript -->
     <script src="js/main.js"></script>
   </body>
-</html>
-</body>
 </html>

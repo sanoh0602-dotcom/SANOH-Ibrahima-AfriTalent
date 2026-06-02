@@ -1,0 +1,331 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AfriTalent — Blog</title>
+    <!-- Bootstrap 5 CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <!-- Bootstrap Icons -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+      rel="stylesheet"
+    />
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <!-- CSS personnalisé -->
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <!-- ===================== NAVBAR ===================== -->
+    <header>
+      <nav class="navbar navbar-expand-lg fixed-top" id="navbar">
+        <div class="container">
+          <!-- Logo -->
+          <a class="navbar-brand" href="index.html">
+            <img
+              src="images/Gemini_Generated_Image_jtmrt1jtmrt1jtmr.png"
+              alt="Logo AfriTalent"
+              height="40"
+            />
+            AfriTalent
+          </a>
+
+          <!-- Bouton hamburger mobile -->
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navMenu"
+            aria-controls="navMenu"
+            aria-expanded="false"
+            aria-label="Ouvrir le menu de navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <!-- Liens de navigation -->
+          <div class="collapse navbar-collapse" id="navMenu">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="index.html">Accueil</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="freelances.html">Freelances</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="tarifs.html">Tarifs</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="about.html">À propos</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="blog.html"
+                  >Blog</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="contact.html">Contact</a>
+              </li>
+            </ul>
+            <!-- Bouton Dark Mode (JS ajouté au commit 6) -->
+            <button
+              class="btn btn-outline-secondary ms-3"
+              id="darkModeToggle"
+              aria-label="Activer le mode sombre"
+            >
+              <i class="bi bi-moon-fill"></i>
+            </button>
+            <!-- Bouton CTA -->
+            <a href="freelances.html" class="btn btn-primary ms-3"
+              >Rejoindre AfriTalent</a
+            >
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <!-- ===================== EN-TÊTE DE PAGE ===================== -->
+      <section class="page-header">
+        <div class="container text-center">
+          <h1>Blog AfriTalent</h1>
+          <p>
+            Conseils, tendances et ressources pour les freelances tech
+            africains.
+          </p>
+        </div>
+      </section>
+
+      <!-- ===================== GRILLE D'ARTICLES ===================== -->
+      <section class="blog-section">
+        <h2 class="text-center my-4">Les derniers articles</h2>
+        <div class="container">
+          <div class="row g-4">
+            <!-- Article 1 -->
+            <div class="col-lg-4 col-md-6">
+              <article class="blog-card card h-100">
+                <img
+                  src="images/pexels-gustavo-fring-6285074.jpg"
+                  alt="Illustration représentant un freelance africain devant son ordinateur"
+                  class="card-img-top blog-img"
+                />
+                <div class="card-body">
+                  <span class="blog-category">Conseils</span>
+                  <h2 class="card-title blog-title">
+                    5 conseils pour décrocher votre première mission sur
+                    AfriTalent
+                  </h2>
+                  <p class="card-text blog-excerpt">
+                    Vous venez de créer votre profil et vous ne savez pas par où
+                    commencer ? Voici les 5 stratégies que nos meilleurs
+                    freelances ont utilisées pour décrocher leur toute première
+                    mission.
+                  </p>
+                </div>
+                <div class="card-footer">
+                  <div class="blog-meta">
+                    <span
+                      ><i class="bi bi-person-fill" aria-hidden="true"></i>
+                      Mamadou Sarr</span
+                    >
+                    <span
+                      ><i class="bi bi-calendar3" aria-hidden="true"></i> 15
+                      avril 2026</span
+                    >
+                  </div>
+                  <a href="#" class="btn btn-outline-primary w-100 mt-3">
+                    Lire l'article
+                    <i class="bi bi-arrow-right" aria-hidden="true"></i>
+                  </a>
+                </div>
+              </article>
+            </div>
+
+            <!-- Article 2 -->
+            <div class="col-lg-4 col-md-6">
+              <article class="blog-card card h-100">
+                <img
+                  src="images/pexels-mutecevvil-20447537.jpg"
+                  alt="Illustration montrant des tendances tech en Afrique en 2026"
+                  class="card-img-top blog-img"
+                />
+                <div class="card-body">
+                  <span class="blog-category">Tendances</span>
+                  <h2 class="card-title blog-title">
+                    Les compétences tech les plus demandées en Afrique en 2026
+                  </h2>
+                  <p class="card-text blog-excerpt">
+                    Le marché du travail numérique africain évolue rapidement.
+                    Intelligence artificielle, cybersécurité, développement
+                    mobile : découvrez quelles compétences les entreprises
+                    recherchent le plus cette année.
+                  </p>
+                </div>
+                <div class="card-footer">
+                  <div class="blog-meta">
+                    <span
+                      ><i class="bi bi-person-fill" aria-hidden="true"></i>
+                      Grace Otieno</span
+                    >
+                    <span
+                      ><i class="bi bi-calendar3" aria-hidden="true"></i> 8
+                      avril 2026</span
+                    >
+                  </div>
+                  <a href="#" class="btn btn-outline-primary w-100 mt-3">
+                    Lire l'article
+                    <i class="bi bi-arrow-right" aria-hidden="true"></i>
+                  </a>
+                </div>
+              </article>
+            </div>
+
+            <!-- Article 3 -->
+            <div class="col-lg-4 col-md-6">
+              <article class="blog-card card h-100">
+                <img
+                  src="images/pexels-rahimegul-27907849.jpg"
+                  alt="Illustration d'une calculatrice et de billets représentant la tarification freelance"
+                  class="card-img-top blog-img"
+                />
+                <div class="card-body">
+                  <span class="blog-category">Tutoriel</span>
+                  <h2 class="card-title blog-title">
+                    Comment fixer son tarif journalier quand on est freelance
+                    débutant
+                  </h2>
+                  <p class="card-text blog-excerpt">
+                    Fixer son prix est l'une des étapes les plus difficiles pour
+                    un freelance débutant. Trop bas, vous sous-estimez votre
+                    valeur. Trop haut, vous perdez des clients. Voici une
+                    méthode concrète pour trouver le bon équilibre.
+                  </p>
+                </div>
+                <div class="card-footer">
+                  <div class="blog-meta">
+                    <span
+                      ><i class="bi bi-person-fill" aria-hidden="true"></i> Ama
+                      Boateng</span
+                    >
+                    <span
+                      ><i class="bi bi-calendar3" aria-hidden="true"></i> 1
+                      avril 2026</span
+                    >
+                  </div>
+                  <a href="#" class="btn btn-outline-primary w-100 mt-3">
+                    Lire l'article
+                    <i class="bi bi-arrow-right" aria-hidden="true"></i>
+                  </a>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ===================== FOOTER ===================== -->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="row g-4">
+          <!-- Colonne 1 : AfriTalent -->
+          <div class="col-lg-3 col-md-6">
+            <img
+              src="images/Gemini_Generated_Image_jtmrt1jtmrt1jtmr.png"
+              alt="Logo AfriTalent"
+              height="35"
+              class="mb-3"
+            />
+            <h3 class="footer-brand">AfriTalent</h3>
+            <p>
+              La plateforme de référence pour connecter les freelances tech
+              africains aux meilleures opportunités mondiales.
+            </p>
+            <div class="social-links">
+              <a href="#" aria-label="Facebook AfriTalent"
+                ><i class="bi bi-facebook" aria-hidden="true"></i
+              ></a>
+              <a href="#" aria-label="Twitter AfriTalent"
+                ><i class="bi bi-twitter-x" aria-hidden="true"></i
+              ></a>
+              <a href="#" aria-label="LinkedIn AfriTalent"
+                ><i class="bi bi-linkedin" aria-hidden="true"></i
+              ></a>
+              <a href="#" aria-label="Instagram AfriTalent"
+                ><i class="bi bi-instagram" aria-hidden="true"></i
+              ></a>
+            </div>
+          </div>
+
+          <!-- Colonne 2 : Liens utiles -->
+          <div class="col-lg-3 col-md-6">
+            <h4 class="footer-title">Liens utiles</h4>
+            <ul class="footer-links">
+              <li><a href="index.html">Accueil</a></li>
+              <li><a href="freelances.html">Trouver un freelance</a></li>
+              <li><a href="tarifs.html">Nos tarifs</a></li>
+              <li><a href="about.html">À propos</a></li>
+              <li><a href="contact.html">Contact</a></li>
+            </ul>
+          </div>
+
+          <!-- Colonne 3 : Ressources -->
+          <div class="col-lg-3 col-md-6">
+            <h4 class="footer-title">Ressources</h4>
+            <ul class="footer-links">
+              <li><a href="blog.html">Blog</a></li>
+              <li><a href="#">Guide du freelance</a></li>
+              <li><a href="#">Centre d'aide</a></li>
+              <li><a href="#">Politique de confidentialité</a></li>
+              <li><a href="#">Conditions d'utilisation</a></li>
+            </ul>
+          </div>
+
+          <!-- Colonne 4 : Contact -->
+          <div class="col-lg-3 col-md-6">
+            <h4 class="footer-title">Contact</h4>
+            <ul class="footer-contact">
+              <li>
+                <i class="bi bi-geo-alt-fill" aria-hidden="true"></i> 12 Avenue
+                Cheikh Anta Diop, Dakar
+              </li>
+              <li>
+                <i class="bi bi-telephone-fill" aria-hidden="true"></i> +221 71
+                004 38 40
+              </li>
+              <li>
+                <i class="bi bi-envelope-fill" aria-hidden="true"></i>
+                contact@afritalent.africa
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Ligne de copyright -->
+        <div class="footer-bottom text-center">
+          <p>
+            &copy; <span id="currentYear"></span> AfriTalent. Tous droits
+            réservés.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Bouton retour en haut (JS au commit 6) -->
+    <button id="backToTop" aria-label="Retour en haut de page">
+      <i class="bi bi-arrow-up" aria-hidden="true"></i>
+    </button>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- JavaScript personnalisé -->
+    <script src="js/main.js"></script>
+  </body>
+</html>

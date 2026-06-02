@@ -4,6 +4,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>AfriTalent — Freelances</title>
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Bootstrap Icons -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+      rel="stylesheet"
+    />
     <!-- Bootstrap 5 via CDN : feuille de style -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
@@ -14,11 +24,625 @@
   </head>
   <body>
     <!-- Le contenu de la page sera ajoute ici -->
+    <!-- ===================== NAVBAR ===================== -->
+    <header>
+      <nav class="navbar navbar-expand-lg fixed-top" id="navbar">
+        <div class="container">
+          <a class="navbar-brand" href="index.html">
+            <img
+              src="images/Gemini_Generated_Image_jtmrt1jtmrt1jtmr.png"
+              alt="Logo AfriTalent"
+              height="40"
+            />
+          </a>
+
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navMenu"
+            aria-controls="navMenu"
+            aria-expanded="false"
+            aria-label="Ouvrir le menu de navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse" id="navMenu">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="index.html">Accueil</a>
+              </li>
+              <li class="nav-item">
+                <a
+                  class="nav-link active"
+                  aria-current="page"
+                  href="freelances.html"
+                  >Freelances</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="tarifs.html">Tarifs</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="about.html">À propos</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="blog.html">Blog</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="contact.html">Contact</a>
+              </li>
+            </ul>
+            <button
+              class="btn btn-outline-secondary ms-3"
+              id="darkModeToggle"
+              aria-label="Activer le mode sombre"
+            >
+              <i class="bi bi-moon-fill"></i>
+            </button>
+            <a href="freelances.html" class="btn btn-primary ms-3"
+              >Rejoindre AfriTalent</a
+            >
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <!-- ===================== EN-TÊTE DE PAGE ===================== -->
+      <section class="page-header">
+        <div class="container text-center">
+          <h1>Nos freelances</h1>
+          <p>
+            Découvrez les meilleurs talents tech du continent africain,
+            disponibles pour vos projets.
+          </p>
+        </div>
+      </section>
+      <!-- ===================== BARRE DE FILTRES ===================== -->
+      <section class="filters-section">
+        <div class="container">
+          <div
+            class="filters-bar"
+            role="group"
+            aria-label="Filtrer les freelances par catégorie"
+          >
+            <!-- Filtres par catégorie (JS au commit 8) -->
+            <button class="filter-btn active" data-category="tous">Tous</button>
+            <button class="filter-btn" data-category="dev-web">
+              Développement Web
+            </button>
+            <button class="filter-btn" data-category="design">
+              Design UI/UX
+            </button>
+            <button class="filter-btn" data-category="marketing">
+              Marketing Digital
+            </button>
+            <button class="filter-btn" data-category="data-ia">
+              Data & IA
+            </button>
+            <button class="filter-btn" data-category="redaction">
+              Rédaction Tech
+            </button>
+            <button class="filter-btn" data-category="devops">
+              DevOps & Cloud
+            </button>
+          </div>
+        </div>
+      </section>
+      <!-- ===================== GRILLE DE FREELANCES ===================== -->
+      <section class="freelances-grid-section">
+        <div class="container">
+          <div class="row g-4" id="freelancesGrid">
+            <!-- Freelance 1 -->
+            <div
+              class="col-lg-4 col-md-6 freelance-item"
+              data-category="dev-web"
+            >
+              <article class="freelance-card card h-100">
+                <div class="card-body">
+                  <div class="freelance-header">
+                    <img
+                      src="images/Gemini_Generated_Image_f5qf6qf5qf6qf5qf.png"
+                      alt="Photo de profil de Kofi Mensah"
+                      class="freelance-avatar"
+                    />
+                    <div>
+                      <h3 class="card-title">Kofi Mensah</h3>
+                      <span class="freelance-specialty"
+                        >Développeur Full Stack</span
+                      >
+                    </div>
+                  </div>
+                  <p class="card-text freelance-bio">
+                    Expert React et Node.js avec 5 ans d'expérience. Spécialisé
+                    dans les applications SaaS pour startups africaines.
+                  </p>
+                  <div class="freelance-meta">
+                    <span class="freelance-rate"
+                      ><i class="bi bi-currency-dollar" aria-hidden="true"></i>
+                      35 000 FCFA / heure</span
+                    >
+                    <div
+                      class="stars"
+                      role="img"
+                      aria-label="Note : 5 étoiles sur 5"
+                    >
+                      <i class="bi bi-star-fill" aria-hidden="true"></i>
+                      <i class="bi bi-star-fill" aria-hidden="true"></i>
+                      <i class="bi bi-star-fill" aria-hidden="true"></i>
+                      <i class="bi bi-star-fill" aria-hidden="true"></i>
+                      <i class="bi bi-star-fill" aria-hidden="true"></i>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-footer">
+                  <a href="#" class="btn btn-primary w-100">Voir le profil</a>
+                </div>
+              </article>
+            </div>
+
+            <!-- Freelance 2 -->
+            <div
+              class="col-lg-4 col-md-6 freelance-item"
+              data-category="design"
+            >
+              <article class="freelance-card card h-100">
+                <div class="card-body">
+                  <div class="freelance-header">
+                    <img
+                      src="images/istockphoto-1679933801-1024x1024.jpg"
+                      alt="Photo de profil de Nadia Touré"
+                      class="freelance-avatar"
+                    />
+                    <div>
+                      <h3 class="card-title">Nadia Touré</h3>
+                      <span class="freelance-specialty">Designer UI/UX</span>
+                    </div>
+                  </div>
+                  <p class="card-text freelance-bio">
+                    Créatrice d'interfaces élégantes et accessibles. Portfolio
+                    comprenant plus de 40 projets mobiles et web.
+                  </p>
+                  <div class="freelance-meta">
+                    <span class="freelance-rate"
+                      ><i class="bi bi-currency-dollar" aria-hidden="true"></i>
+                      28 000 FCFA / heure</span
+                    >
+                    <div
+                      class="stars"
+                      role="img"
+                      aria-label="Note : 4.5 étoiles sur 5"
+                    >
+                      <i class="bi bi-star-fill" aria-hidden="true"></i>
+                      <i class="bi bi-star-fill" aria-hidden="true"></i>
+                      <i class="bi bi-star-fill" aria-hidden="true"></i>
+                      <i class="bi bi-star-fill" aria-hidden="true"></i>
+                      <i class="bi bi-star-half" aria-hidden="true"></i>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-footer">
+                  <a href="#" class="btn btn-primary w-100">Voir le profil</a>
+                </div>
+              </article>
+            </div>
+
+            <!-- Freelance 3 -->
+            <div
+              class="col-lg-4 col-md-6 freelance-item"
+              data-category="data-ia"
+            >
+              <article class="freelance-card card h-100">
+                <div class="card-body">
+                  <div class="freelance-header">
+                    <img
+                      src="images/Gemini_Generated_Image_x51fjpx51fjpx51f.png"
+                      alt="Photo de profil de Ibrahim Bah"
+                      class="freelance-avatar"
+                    />
+                    <div>
+                      <h3 class="card-title">Ibrahim Bah</h3>
+                      <span class="freelance-specialty">Data Scientist</span>
+                    </div>
+                  </div>
+                  <p class="card-text freelance-bio">
+                    Spécialiste Machine Learning et analyse de données. Diplômé
+                    de l'Université de Lagos, expérience internationale.
+                  </p>
+                  <div class="freelance-meta">
+                    <span class="freelance-rate"
+                      ><i class="bi bi-currency-dollar" aria-hidden="true"></i>
+                      42 000 FCFA / heure</span
+                    >
+                    <div
+                      class="stars"
+                      role="img"
+                      aria-label="Note : 5 étoiles sur 5"
+                    >
+                      <i class="bi bi-star-fill" aria-hidden="true"></i>
+                      <i class="bi bi-star-fill" aria-hidden="true"></i>
+                      <i class="bi bi-star-fill" aria-hidden="true"></i>
+                      <i class="bi bi-star-fill" aria-hidden="true"></i>
+                      <i class="bi bi-star-fill" aria-hidden="true"></i>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-footer">
+                  <a href="#" class="btn btn-primary w-100">Voir le profil</a>
+                </div>
+              </article>
+            </div>
+
+            <!-- Freelance 4 -->
+            <div
+              class="col-lg-4 col-md-6 freelance-item"
+              data-category="devops"
+            >
+              <article class="freelance-card card h-100">
+                <div class="card-body">
+                  <div class="freelance-header">
+                    <img
+                      src="images/Gemini_Generated_Image_vy138wvy138wvy13.png"
+                      alt="Photo de profil de Chioma Obi"
+                      class="freelance-avatar"
+                    />
+                    <div>
+                      <h3 class="card-title">Chioma Obi</h3>
+                      <span class="freelance-specialty">DevOps Engineer</span>
+                    </div>
+                  </div>
+                  <p class="card-text freelance-bio">
+                    Experte AWS et Kubernetes. Automatise les pipelines CI/CD
+                    pour des équipes de 5 à 200 développeurs.
+                  </p>
+                  <div class="freelance-meta">
+                    <span class="freelance-rate"
+                      ><i class="bi bi-currency-dollar" aria-hidden="true"></i>
+                      50 000 FCFA / heure</span
+                    >
+                    <div
+                      class="stars"
+                      role="img"
+                      aria-label="Note : 5 étoiles sur 5"
+                    >
+                      <i class="bi bi-star-fill" aria-hidden="true"></i>
+                      <i class="bi bi-star-fill" aria-hidden="true"></i>
+                      <i class="bi bi-star-fill" aria-hidden="true"></i>
+                      <i class="bi bi-star-fill" aria-hidden="true"></i>
+                      <i class="bi bi-star-fill" aria-hidden="true"></i>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-footer">
+                  <a href="#" class="btn btn-primary w-100">Voir le profil</a>
+                </div>
+              </article>
+            </div>
+
+            <!-- Freelance 5 -->
+            <div
+              class="col-lg-4 col-md-6 freelance-item"
+              data-category="marketing"
+            >
+              <article class="freelance-card card h-100">
+                <div class="card-body">
+                  <div class="freelance-header">
+                    <img
+                      src="images/Gemini_Generated_Image_qjejgpqjejgpqjej.png"
+                      alt="Photo de profil de Moussa Coulibaly"
+                      class="freelance-avatar"
+                    />
+                    <div>
+                      <h3 class="card-title">Moussa Coulibaly</h3>
+                      <span class="freelance-specialty">Growth Marketer</span>
+                    </div>
+                  </div>
+                  <p class="card-text freelance-bio">
+                    Spécialiste SEO, publicité Facebook et Google Ads. A généré
+                    plus de 500M FCFA de revenus pour ses clients.
+                  </p>
+                  <div class="freelance-meta">
+                    <span class="freelance-rate"
+                      ><i class="bi bi-currency-dollar" aria-hidden="true"></i>
+                      22 000 FCFA / heure</span
+                    >
+                    <div
+                      class="stars"
+                      role="img"
+                      aria-label="Note : 4 étoiles sur 5"
+                    >
+                      <i class="bi bi-star-fill" aria-hidden="true"></i>
+                      <i class="bi bi-star-fill" aria-hidden="true"></i>
+                      <i class="bi bi-star-fill" aria-hidden="true"></i>
+                      <i class="bi bi-star-fill" aria-hidden="true"></i>
+                      <i class="bi bi-star" aria-hidden="true"></i>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-footer">
+                  <a href="#" class="btn btn-primary w-100">Voir le profil</a>
+                </div>
+              </article>
+            </div>
+
+            <!-- Freelance 6 -->
+            <div
+              class="col-lg-4 col-md-6 freelance-item"
+              data-category="redaction"
+            >
+              <article class="freelance-card card h-100">
+                <div class="card-body">
+                  <div class="freelance-header">
+                    <img
+                      src="images/Gemini_Generated_Image_pu8q3epu8q3epu8q.png"
+                      alt="Photo de profil de Adaeze Chukwu"
+                      class="freelance-avatar"
+                    />
+                    <div>
+                      <h3 class="card-title">Adaeze Chukwu</h3>
+                      <span class="freelance-specialty">Tech Writer</span>
+                    </div>
+                  </div>
+                  <p class="card-text freelance-bio">
+                    Rédactrice technique bilingue (FR/EN). Spécialisée dans la
+                    documentation API, les guides développeurs et les articles
+                    de blog tech.
+                  </p>
+                  <div class="freelance-meta">
+                    <span class="freelance-rate"
+                      ><i class="bi bi-currency-dollar" aria-hidden="true"></i>
+                      18 000 FCFA / heure</span
+                    >
+                    <div
+                      class="stars"
+                      role="img"
+                      aria-label="Note : 4.5 étoiles sur 5"
+                    >
+                      <i class="bi bi-star-fill" aria-hidden="true"></i>
+                      <i class="bi bi-star-fill" aria-hidden="true"></i>
+                      <i class="bi bi-star-fill" aria-hidden="true"></i>
+                      <i class="bi bi-star-fill" aria-hidden="true"></i>
+                      <i class="bi bi-star-half" aria-hidden="true"></i>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-footer">
+                  <a href="#" class="btn btn-primary w-100">Voir le profil</a>
+                </div>
+              </article>
+            </div>
+
+            <!-- Freelance 7 -->
+            <div
+              class="col-lg-4 col-md-6 freelance-item"
+              data-category="dev-web"
+            >
+              <article class="freelance-card card h-100">
+                <div class="card-body">
+                  <div class="freelance-header">
+                    <img
+                      src="images/Gemini_Generated_Image_jtmrt1jtmrt1jtmr.png"
+                      alt="Photo de profil de Seydou Traoré"
+                      class="freelance-avatar"
+                    />
+                    <div>
+                      <h3 class="card-title">Seydou Traoré</h3>
+                      <span class="freelance-specialty"
+                        >Développeur Mobile</span
+                      >
+                    </div>
+                  </div>
+                  <p class="card-text freelance-bio">
+                    Développeur Flutter et React Native avec 4 ans d'expérience.
+                    A publié 12 applications sur les stores iOS et Android.
+                  </p>
+                  <div class="freelance-meta">
+                    <span class="freelance-rate"
+                      ><i class="bi bi-currency-dollar" aria-hidden="true"></i>
+                      38 000 FCFA / heure</span
+                    >
+                    <div
+                      class="stars"
+                      role="img"
+                      aria-label="Note : 5 étoiles sur 5"
+                    >
+                      <i class="bi bi-star-fill" aria-hidden="true"></i>
+                      <i class="bi bi-star-fill" aria-hidden="true"></i>
+                      <i class="bi bi-star-fill" aria-hidden="true"></i>
+                      <i class="bi bi-star-fill" aria-hidden="true"></i>
+                      <i class="bi bi-star-fill" aria-hidden="true"></i>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-footer">
+                  <a href="#" class="btn btn-primary w-100">Voir le profil</a>
+                </div>
+              </article>
+            </div>
+
+            <!-- Freelance 8 -->
+            <div
+              class="col-lg-4 col-md-6 freelance-item"
+              data-category="design"
+            >
+              <article class="freelance-card card h-100">
+                <div class="card-body">
+                  <div class="freelance-header">
+                    <img
+                      src="images/Gemini_Generated_Image_qjejgpqjejgpqjej.png"
+                      alt="Photo de profil de Léa Gbandi"
+                      class="freelance-avatar"
+                    />
+                    <div>
+                      <h3 class="card-title">Léa Gbandi</h3>
+                      <span class="freelance-specialty">Motion Designer</span>
+                    </div>
+                  </div>
+                  <p class="card-text freelance-bio">
+                    Animatrice 2D et motion designer. Crée des vidéos
+                    explicatives, des intros de marque et des animations pour
+                    les réseaux sociaux.
+                  </p>
+                  <div class="freelance-meta">
+                    <span class="freelance-rate"
+                      ><i class="bi bi-currency-dollar" aria-hidden="true"></i>
+                      25 000 FCFA / heure</span
+                    >
+                    <div
+                      class="stars"
+                      role="img"
+                      aria-label="Note : 4 étoiles sur 5"
+                    >
+                      <i class="bi bi-star-fill" aria-hidden="true"></i>
+                      <i class="bi bi-star-fill" aria-hidden="true"></i>
+                      <i class="bi bi-star-fill" aria-hidden="true"></i>
+                      <i class="bi bi-star-fill" aria-hidden="true"></i>
+                      <i class="bi bi-star" aria-hidden="true"></i>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-footer">
+                  <a href="#" class="btn btn-primary w-100">Voir le profil</a>
+                </div>
+              </article>
+            </div>
+
+            <!-- Freelance 9 -->
+            <div
+              class="col-lg-4 col-md-6 freelance-item"
+              data-category="data-ia"
+            >
+              <article class="freelance-card card h-100">
+                <div class="card-body">
+                  <div class="freelance-header">
+                    <img
+                      src="images/Gemini_Generated_Image_x51fjpx51fjpx51f.png"
+                      alt="Photo de profil de Omar Diallo"
+                      class="freelance-avatar"
+                    />
+                    <div>
+                      <h3 class="card-title">Omar Diallo</h3>
+                      <span class="freelance-specialty">Ingénieur IA</span>
+                    </div>
+                  </div>
+                  <p class="card-text freelance-bio">
+                    Expert en NLP et modèles de langage. Développe des solutions
+                    IA adaptées aux langues africaines comme le wolof et le
+                    haoussa.
+                  </p>
+                  <div class="freelance-meta">
+                    <span class="freelance-rate"
+                      ><i class="bi bi-currency-dollar" aria-hidden="true"></i>
+                      55 000 FCFA / heure</span
+                    >
+                    <div
+                      class="stars"
+                      role="img"
+                      aria-label="Note : 5 étoiles sur 5"
+                    >
+                      <i class="bi bi-star-fill" aria-hidden="true"></i>
+                      <i class="bi bi-star-fill" aria-hidden="true"></i>
+                      <i class="bi bi-star-fill" aria-hidden="true"></i>
+                      <i class="bi bi-star-fill" aria-hidden="true"></i>
+                      <i class="bi bi-star-fill" aria-hidden="true"></i>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-footer">
+                  <a href="#" class="btn btn-primary w-100">Voir le profil</a>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <!-- ===================== FOOTER ===================== -->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="row g-4">
+          <div class="col-lg-3 col-md-6">
+            <img
+              src="images/Gemini_Generated_Image_2k7izf2k7izf2k7i.png"
+              alt="Logo AfriTalent"
+              height="35"
+              class="mb-3"
+            />
+            <h3 class="footer-brand">AfriTalent</h3>
+            <p>
+              La plateforme de référence pour connecter les freelances tech
+              africains aux meilleures opportunités mondiales.
+            </p>
+            <div class="social-links">
+              <a href="#" aria-label="Facebook AfriTalent"
+                ><i class="bi bi-facebook" aria-hidden="true"></i
+              ></a>
+              <a href="#" aria-label="Twitter AfriTalent"
+                ><i class="bi bi-twitter-x" aria-hidden="true"></i
+              ></a>
+              <a href="#" aria-label="LinkedIn AfriTalent"
+                ><i class="bi bi-linkedin" aria-hidden="true"></i
+              ></a>
+              <a href="#" aria-label="Instagram AfriTalent"
+                ><i class="bi bi-instagram" aria-hidden="true"></i
+              ></a>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <h4 class="footer-title">Liens utiles</h4>
+            <ul class="footer-links">
+              <li><a href="index.html">Accueil</a></li>
+              <li><a href="freelances.html">Trouver un freelance</a></li>
+              <li><a href="tarifs.html">Nos tarifs</a></li>
+              <li><a href="about.html">À propos</a></li>
+              <li><a href="contact.html">Contact</a></li>
+            </ul>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <h4 class="footer-title">Ressources</h4>
+            <ul class="footer-links">
+              <li><a href="#">Blog</a></li>
+              <li><a href="#">Guide du freelance</a></li>
+              <li><a href="#">Centre d'aide</a></li>
+              <li><a href="#">Politique de confidentialité</a></li>
+              <li><a href="#">Conditions d'utilisation</a></li>
+            </ul>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <h4 class="footer-title">Contact</h4>
+            <ul class="footer-contact">
+              <li>
+                <i class="bi bi-geo-alt-fill" aria-hidden="true"></i> 12 Avenue
+                Cheikh Anta Diop, Dakar
+              </li>
+              <li>
+                <i class="bi bi-telephone-fill" aria-hidden="true"></i> +221 77
+                000 00 00
+              </li>
+              <li>
+                <i class="bi bi-envelope-fill" aria-hidden="true"></i>
+                contact@afritalent.africa
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom text-center">
+          <p>
+            &copy; <span id="currentYear"></span> AfriTalent. Tous droits
+            réservés.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <button id="backToTop" aria-label="Retour en haut de page">
+      <i class="bi bi-arrow-up" aria-hidden="true"></i>
+    </button>
+
     <!-- Bootstrap 5 via CDN : script JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Votre script JavaScript -->
     <script src="js/main.js"></script>
   </body>
-</html>
-</body>
 </html>
