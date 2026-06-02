@@ -36,8 +36,8 @@ if (currentYearEl) {
    Récupération du bouton dark mode (id="darkModeToggle")
    présent dans la navbar de TOUTES les pages.
 */
-const darkModeToggle = document.getElementById('darkModeToggle');
 
+const darkModeToggle = document.getElementById('darkModeToggle');
 
 /*
    Fonction applyTheme(theme)
@@ -58,8 +58,7 @@ function applyTheme(theme) {
 
   /* Étape 2 : récupérer l'icône <i> dans le bouton */
   const icon = darkModeToggle ? darkModeToggle.querySelector('i') : null;
-
-  if (theme === 'dark') {
+   if (theme === 'dark') {
 
     /* MODE SOMBRE : lune → soleil, bouton gris → jaune */
     if (icon) {
@@ -129,7 +128,6 @@ if (darkModeToggle) {
     localStorage.setItem('theme', newTheme);
   });
 }
-
 /* ============================================================
    3. NAVBAR DYNAMIQUE AU SCROLL
    Effet "shrink" après 50px de défilement
@@ -165,7 +163,6 @@ function handleNavbarScroll() {
     navbar.classList.remove('scrolled');
   }
 }
-
 /*
    Écoute du scroll sur toute la fenêtre.
    handleNavbarScroll() s'exécute à chaque mouvement de scroll.
@@ -178,7 +175,6 @@ window.addEventListener('scroll', handleNavbarScroll);
    aura déjà le bon style sans attendre un scroll.
 */
 handleNavbarScroll();
-
 /* ============================================================
    4. BOUTON RETOUR EN HAUT
    Apparaît après 300px de scroll, remonte en douceur au clic
@@ -188,11 +184,6 @@ handleNavbarScroll();
    Récupération du bouton id="backToTop".
 */
 const backToTopBtn = document.getElementById('backToTop');
-
-
-
-
-
 
 /*
    Fonction handleBackToTop()
@@ -213,7 +204,6 @@ function handleBackToTop() {
     backToTopBtn.style.display = 'none';
   }
 }
-
 /* Écoute du scroll pour gérer l'affichage du bouton */
 window.addEventListener('scroll', handleBackToTop);
 
@@ -237,3 +227,129 @@ if (backToTopBtn) {
   });
 }
 
+/* ============================================================
+   COMMIT 7 — À COLLER À LA FIN DE TON main.js
+   Compteurs animés + Animations fade-in au scroll
+   ============================================================ */
+
+
+/* ============================================================
+   COMPTEURS ANIMÉS AU SCROLL
+   Les chiffres passent de 0 à leur valeur cible
+   ============================================================ */
+
+/*
+   On sélectionne tous les éléments qui ont la classe stat-number.
+   Ce sont les chiffres : 2500, 800, 12000 etc.
+   Ils existent sur index.html et about.html.
+*/
+const counters = document.querySelectorAll('.stat-number');
+
+/*
+   animateCounter(element)
+   → fait compter un chiffre de 0 jusqu'à sa valeur cible.
+
+   Comment ça marche :
+   - On lit la valeur cible depuis data-target (ex: 2500)
+   - On divise par 50 pour avoir l'incrément à chaque étape
+   - Toutes les 30ms, on ajoute l'incrément
+   - Quand on atteint la cible, on s'arrête
+*/
+function animateCounter(element) {
+
+  /* Lire la valeur cible depuis data-target="2500" */
+  const target = parseInt(element.getAttribute('data-target'));
+
+  /* Départ à 0 */
+  let current = 0;
+
+  /* Calcul du pas : cible divisée par 50 étapes */
+  const increment = Math.ceil(target / 50);
+
+  /*
+     setInterval → répète toutes les 30 millisecondes.
+     C'est ce qui crée l'effet de compteur animé.
+  */
+  const timer = setInterval(function () {
+
+    current += increment;
+
+    if (current >= target) {
+      /* On a atteint la cible → afficher le nombre exact */
+      element.textContent = target.toLocaleString('fr-FR');
+      /* Arrêter le timer */
+      clearInterval(timer);
+    } else {
+      /* Afficher le nombre intermédiaire */
+      element.textContent = current.toLocaleString('fr-FR');
+    }
+
+  }, 30);
+}
+
+/*
+   IntersectionObserver → surveille quand les compteurs
+   deviennent visibles dans l'écran.
+
+   Quand un compteur entre dans l'écran :
+   → on lance l'animation
+   → on arrête de l'observer (pour ne pas rejouer l'animation)
+*/
+const counterObserver = new IntersectionObserver(function (entries) {
+
+  entries.forEach(function (entry) {
+
+    /* entry.isIntersecting = true si l'élément est visible */
+    if (entry.isIntersecting) {
+      animateCounter(entry.target);
+      counterObserver.unobserve(entry.target);
+    }
+
+  });
+
+}, { threshold: 0.5 }); /* 0.5 = déclenche quand 50% visible */
+
+/* On surveille chaque compteur */
+counters.forEach(function (counter) {
+  counterObserver.observe(counter);
+});
+
+
+/* ============================================================
+   ANIMATIONS FADE-IN AU SCROLL
+   Les sections apparaissent en fondu quand on les voit
+   ============================================================ */
+
+/*
+   On sélectionne toutes les sections avec animate-section.
+   Cette classe est sur toutes les sections de toutes les pages.
+*/
+const animatedSections = document.querySelectorAll('.animate-section');
+
+/*
+   IntersectionObserver → surveille quand les sections
+   deviennent visibles dans l'écran.
+
+   Quand une section entre dans l'écran :
+   → on ajoute la classe CSS "visible"
+   → le CSS fait apparaître la section en fondu
+   → on arrête de l'observer
+*/
+const sectionObserver = new IntersectionObserver(function (entries) {
+
+  entries.forEach(function (entry) {
+
+    if (entry.isIntersecting) {
+      /* Ajouter "visible" → le CSS déclenche la transition */
+      entry.target.classList.add('visible');
+      sectionObserver.unobserve(entry.target);
+    }
+
+  });
+
+}, { threshold: 0.1 }); /* 0.1 = déclenche quand 10% visible */
+
+/* On surveille chaque section */
+animatedSections.forEach(function (section) {
+  sectionObserver.observe(section);
+});
