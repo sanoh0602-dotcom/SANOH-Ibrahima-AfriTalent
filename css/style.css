@@ -1,0 +1,805 @@
+/* ============================================================
+   AFRITALENT — STYLE.CSS
+   Commit 3 : Variables, typographie, layout général, styles de base
+   ============================================================ */
+
+/* ============================================================
+   IMPORTATION DES GOOGLE FONTS
+   ============================================================ */
+
+/*
+   @import url(...)
+   → charge les polices depuis les serveurs Google Fonts.
+
+   Syne : police expressive pour les titres.
+   Poids chargés : 400 (normal), 600 (semi-gras), 700 (gras), 800 (extra-gras).
+
+   DM Sans : police moderne et lisible pour le corps du texte.
+   ital : version italique aussi chargée.
+   opsz : optical size, adapte la police selon sa taille d'affichage.
+   Poids : 300 (léger), 400 (normal), 500 (medium).
+
+   display=swap : affiche d'abord une police système pendant le chargement
+   de Syne et DM Sans, évite le texte invisible (FOIT - Flash of Invisible Text).
+*/
+@import url("https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap");
+
+/* ============================================================
+   VARIABLES CSS — DÉFINIES DANS :root
+   ============================================================ */
+
+/*
+   :root cible l'élément racine du document HTML (la balise <html>).
+   Les variables définies ici sont accessibles sur TOUTE la page
+   via la fonction var(--nom-variable).
+
+   Avantage : changer une couleur ici la change partout sur le site.
+   C'est pourquoi le sujet demande au minimum 6 variables.
+*/
+:root {
+  /* --- COULEURS (palette de 5 couleurs maximum) --- */
+
+  /* Variable 1 — Couleur principale de la marque AfriTalent (orange) */
+  --color-primary: #f97316;
+
+  /* Variable 2 — Couleur secondaire (bleu très foncé, pour titres et fonds sombres) */
+  --color-secondary: #1e293b;
+
+  /* Variable 3 — Couleur de fond générale de la page (blanc cassé, doux pour les yeux) */
+  --color-background: #f8fafc;
+
+  /* Variable 4 — Couleur du texte courant (quasi-noir, meilleure lisibilité que noir pur) */
+  --color-text: #0f172a;
+
+  /* Variable 5 — Couleur d'accent (orange foncé, pour les survols et états actifs) */
+  --color-accent: #ea6a0a;
+
+  /* --- POLICES --- */
+
+  /* Variable 6 — Police des titres : Syne, importée depuis Google Fonts ci-dessus */
+  --font-heading: "Syne", sans-serif;
+
+  /* Variable 7 — Police du corps du texte : DM Sans, importée depuis Google Fonts ci-dessus */
+  --font-body: "DM Sans", sans-serif;
+
+  /* --- ESPACEMENTS --- */
+
+  /* Variable 8 — Espacement vertical entre les grandes sections de la page */
+  --spacing-section: 80px;
+
+  /* Variable 9 — Padding interne des cartes et blocs de contenu */
+  --spacing-card: 24px;
+
+  /* --- EFFETS --- */
+
+  /* Variable 10 — Ombre portée standard pour les cartes */
+  --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.08);
+
+  /* Variable 11 — Ombre portée au survol des cartes */
+  --shadow-hover: 0 8px 30px rgba(249, 115, 22, 0.15);
+
+  /* Variable 12 — Rayon d'arrondi standard pour les cartes */
+  --border-radius: 12px;
+}
+
+/* ============================================================
+   RESET CSS ET STYLES DE BASE
+   Marges, paddings, body
+   ============================================================ */
+
+/*
+   *, *::before, *::after cible TOUS les éléments HTML
+   ainsi que leurs pseudo-éléments ::before et ::after.
+
+   box-sizing: border-box
+   → le padding et la bordure sont INCLUS dans la largeur/hauteur.
+   Sans ça, le padding s'AJOUTE à la largeur déclarée et provoque
+   des débordements inattendus.
+
+   margin: 0; padding: 0
+   → supprime les marges et paddings par défaut du navigateur.
+   Chrome, Firefox et Safari ont des valeurs par défaut différentes,
+   ce reset les uniformise.
+*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/*
+   scroll-behavior: smooth
+   → active le défilement animé et fluide quand on clique sur
+   un lien ancre comme <a href="#contact">.
+   Sans ça, le saut vers la section serait instantané et brutal.
+*/
+html {
+  scroll-behavior: smooth;
+}
+
+/*
+   Styles appliqués à l'ensemble du document via le <body> :
+
+   font-family: var(--font-body)
+   → applique DM Sans à tout le texte du site via la variable.
+
+   color: var(--color-text)
+   → couleur de texte par défaut (quasi-noir).
+
+   background-color: var(--color-background)
+   → fond blanc cassé pour toute la page.
+
+   line-height: 1.6
+   → hauteur de ligne = 1.6 × la taille de la police.
+   Valeur recommandée pour une bonne lisibilité (entre 1.5 et 1.7).
+
+   padding-top: 72px
+   → compense la navbar en position fixed.
+   Quand la navbar est fixed, elle sort du flux normal du document.
+   Le contenu se place donc DERRIÈRE elle et est partiellement caché.
+   Ce padding-top pousse le contenu vers le bas d'une hauteur
+   égale à celle de la navbar (~72px).
+   IMPORTANT : les deux déclarations body sont ici fusionnées en une seule.
+*/
+body {
+  font-family: var(--font-body);
+  color: var(--color-text);
+  background-color: var(--color-background);
+  line-height: 1.6;
+  padding-top: 72px;
+}
+
+/*
+   Styles communs appliqués à tous les titres h1 jusqu'à h6 :
+
+   font-family: var(--font-heading)
+   → applique Syne (expressive) à tous les titres.
+
+   font-weight: 700
+   → gras (bold). 700 est le poids standard pour les titres.
+
+   color: var(--color-secondary)
+   → bleu foncé pour les titres, crée une hiérarchie visuelle
+   claire avec le texte courant en quasi-noir.
+
+   line-height: 1.2
+   → interligne compacte pour les titres.
+   Les grands textes n'ont pas besoin d'autant d'espace.
+
+   margin-bottom: 1rem
+   → 16px d'espace sous chaque titre pour le séparer du contenu.
+*/
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: var(--color-secondary);
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+/*
+   margin-bottom: 1rem
+   → 16px d'espace sous chaque paragraphe
+   pour bien séparer les blocs de texte.
+*/
+p {
+  margin-bottom: 1rem;
+}
+
+/*
+   color: var(--color-primary)
+   → les liens <a> sont affichés en orange (couleur de marque).
+
+   text-decoration: none
+   → supprime le soulignement par défaut du navigateur.
+*/
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+/*
+   text-decoration: underline
+   → ajoute un soulignement au survol pour signaler
+   que l'élément est cliquable.
+
+   color: var(--color-accent)
+   → orange foncé au survol pour donner un retour visuel.
+*/
+a:hover {
+  color: var(--color-accent);
+  text-decoration: underline;
+}
+
+/*
+   max-width: 100%
+   → l'image ne dépasse jamais la largeur de son conteneur.
+   Règle de base du responsive design pour les images.
+
+   height: auto
+   → conserve les proportions naturelles de l'image.
+
+   display: block
+   → supprime le petit espace blanc qui apparaît sous les images.
+   Par défaut les images sont inline (display: inline),
+   ce qui laisse un espace correspondant à la ligne de base du texte.
+*/
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/*
+   ul (listes non ordonnées) — suppression du style par défaut.
+
+   list-style: none
+   → supprime les puces (•) appliquées par défaut par le navigateur.
+   Cela nous permet de styliser nos propres listes (footer, plans, etc.)
+   sans les puces par défaut.
+*/
+ul {
+  list-style: none;
+}
+/* ============================================================
+   NAVBAR STYLISÉE
+   Logo visible, liens alignés
+   ============================================================ */
+
+/*
+   On surcharge ici les styles Bootstrap de la barre de navigation.
+
+   background-color: #ffffff
+   → fond blanc pour la navbar.
+
+   box-shadow
+   → ombre légère sous la navbar pour la détacher visuellement
+   du contenu en dessous.
+   Format : offset-x | offset-y | flou | couleur.
+   rgba(0,0,0,0.08) = noir à 8% d'opacité, très subtil.
+
+   padding: 1rem 0
+   → 16px en haut et en bas de la navbar.
+   0 à gauche/droite (le .container Bootstrap gère les marges latérales).
+
+   transition: all 0.3s ease
+   → prépare la navbar à changer de style au scroll (commit 6 JS).
+   L'animation sera déclenchée par JavaScript qui ajoutera une classe.
+*/
+.navbar {
+  background-color: #ffffff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  padding: 1rem 0;
+  transition: all 0.3s ease;
+}
+
+/*
+   .navbar-brand — lien contenant le logo + texte "AfriTalent".
+
+   font-family: var(--font-heading)
+   → Syne pour le nom de la marque.
+
+   font-size: 1.5rem
+   → 24px, plus grand que le texte normal.
+
+   font-weight: 800
+   → poids maximum de Syne, très impactant.
+
+   color: var(--color-primary)
+   → orange de marque.
+
+   display: flex + align-items: center + gap: 0.5rem
+   → aligne horizontalement l'image du logo et le texte "AfriTalent".
+   Sans flex, l'image et le texte pourraient se désaligner.
+*/
+.navbar-brand {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--color-primary) !important;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/*
+   !important : force la couleur orange même quand Bootstrap essaie
+   de la surcharger sur certains thèmes de navbar.
+*/
+.navbar-brand:hover {
+  color: var(--color-accent) !important;
+  text-decoration: none;
+}
+
+/*
+   .navbar-nav .nav-link — les liens de navigation dans la navbar.
+
+   color: var(--color-secondary)
+   → bleu foncé pour les liens.
+
+   font-weight: 500
+   → semi-gras. Plus lisible que 400, moins agressif que 700.
+
+   padding: 0.5rem 1rem
+   → zone cliquable confortable autour de chaque lien.
+
+   transition: color 0.3s ease
+   → anime le changement de couleur au survol en 300ms.
+*/
+.navbar-nav .nav-link {
+  color: var(--color-secondary) !important;
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  transition: color 0.3s ease;
+}
+
+/*
+   Au survol et sur le lien actif :
+   → orange via --color-primary.
+*/
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+  color: var(--color-primary) !important;
+}
+
+/* ============================================================
+   SURCHARGE DES BOUTONS BOOTSTRAP
+   ============================================================ */
+
+/*
+   Bootstrap colore .btn-primary en BLEU (#0d6efd) par défaut.
+   On surcharge ici pour utiliser notre orange de marque.
+
+   background-color: var(--color-primary)
+   → fond orange via la variable.
+
+   border-color: var(--color-primary)
+   → bordure orange (Bootstrap ajoute une bordure aux boutons).
+
+   color: #ffffff
+   → texte blanc sur fond orange (contraste accessible).
+
+   font-weight: 600
+   → semi-gras pour la lisibilité des boutons.
+
+   border-radius: 50px
+   → forme "pilule" arrondie.
+
+   transition
+   → anime les changements visuels au survol.
+*/
+.btn-primary {
+  background-color: var(--color-primary) !important;
+  border-color: var(--color-primary) !important;
+  color: #ffffff !important;
+  font-weight: 600;
+  border-radius: 50px;
+  transition:
+    background-color 0.3s ease,
+    transform 0.2s ease;
+}
+
+/*
+   Au survol du bouton principal :
+   → orange foncé via --color-accent.
+   → légère élévation avec transform: translateY(-2px)
+   qui donne l'impression que le bouton "monte" légèrement.
+*/
+.btn-primary:hover {
+  background-color: var(--color-accent) !important;
+  border-color: var(--color-accent) !important;
+  color: #ffffff !important;
+  transform: translateY(-2px);
+}
+
+/*
+   .btn-outline-primary — bouton transparent avec bordure orange.
+   Utilisé comme bouton secondaire (ex: "Je cherche un Freelance").
+
+   color: var(--color-primary)
+   → texte orange.
+
+   border-color: var(--color-primary)
+   → bordure orange.
+
+   background-color: transparent
+   → fond transparent.
+*/
+.btn-outline-primary {
+  color: var(--color-primary) !important;
+  border-color: var(--color-primary) !important;
+  background-color: transparent !important;
+  font-weight: 600;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+}
+
+/*
+   Au survol : fond orange, texte blanc (inversion des couleurs).
+*/
+.btn-outline-primary:hover {
+  background-color: var(--color-primary) !important;
+  color: #ffffff !important;
+  transform: translateY(-2px);
+}
+
+/*
+   .btn-outline-secondary — bouton du dark mode dans la navbar.
+
+   Même principe mais avec la couleur secondaire (bleu foncé).
+*/
+.btn-outline-secondary {
+  color: var(--color-secondary) !important;
+  border-color: var(--color-secondary) !important;
+  background-color: transparent !important;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+}
+
+.btn-outline-secondary:hover {
+  background-color: var(--color-secondary) !important;
+  color: #ffffff !important;
+}
+
+/* ============================================================
+   TITRES DE SECTIONS RÉUTILISABLES
+   Classes .section-title et .section-subtitle
+   utilisées sur TOUTES les pages du site
+   ============================================================ */
+
+/*
+   .section-title — titre principal de chaque section.
+
+   font-size: 2.25rem
+   → 36px, bien visible et hiérarchisé sous le H1 de la page.
+
+   font-weight: 800
+   → très gras pour l'impact visuel.
+
+   color: var(--color-secondary)
+   → bleu foncé via la variable.
+
+   margin-bottom: 1rem
+   → espace sous le titre avant le sous-titre ou le contenu.
+*/
+.section-title {
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: var(--color-secondary);
+  margin-bottom: 1rem;
+}
+
+/*
+   .section-subtitle — description courte sous le titre de section.
+
+   font-size: 1.1rem
+   → légèrement plus grand que le texte normal pour la lisibilité.
+
+   color: #64748b
+   → gris moyen, discret par rapport au titre principal.
+
+   max-width: 600px
+   → limite la largeur du texte pour éviter des lignes trop longues.
+   Les textes très larges sont difficiles à lire.
+
+   margin: 0 auto 3rem
+   → 0 en haut, auto à gauche/droite (centrage horizontal),
+   3rem (48px) en bas pour espacer du contenu suivant.
+*/
+.section-subtitle {
+  font-size: 1.1rem;
+  color: #64748b;
+  max-width: 600px;
+  margin: 0 auto 3rem;
+}
+
+/* ============================================================
+   EN-TÊTE DE PAGE (page-header)
+   Section de titre présente sur toutes les pages secondaires :
+   freelances, tarifs, about, contact, blog
+   ============================================================ */
+
+/*
+   .page-header — section d'en-tête des pages secondaires.
+
+   background-color: var(--color-secondary)
+   → fond bleu foncé qui contraste avec le reste de la page.
+
+   color: #ffffff
+   → texte blanc sur fond foncé.
+
+   padding: var(--spacing-section) 0
+   → 80px de padding en haut et en bas via la variable.
+
+   text-align: center
+   → tout le contenu centré.
+
+   margin-bottom: var(--spacing-section)
+   → 80px d'espace sous l'en-tête avant la première section.
+*/
+.page-header {
+  background-color: var(--color-secondary);
+  color: #ffffff;
+  padding: var(--spacing-section) 0;
+  text-align: center;
+  margin-bottom: var(--spacing-section);
+}
+
+/*
+   Dans .page-header, les titres H1 héritent du blanc du parent.
+   On doit le redéfinir explicitement car la règle globale h1-h6
+   met les titres en --color-secondary (bleu foncé).
+   Sur fond foncé, on veut du blanc.
+
+   font-size: 3rem → 48px, titre de page bien imposant.
+*/
+.page-header h1 {
+  color: #ffffff;
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+}
+
+/*
+   Même logique : le paragraphe sous le H1 doit être blanc
+   mais légèrement transparent pour créer une hiérarchie subtile.
+
+   opacity: 0.85
+   → blanc légèrement atténué (85% d'opacité).
+   Crée une distinction visuelle subtile entre le titre et la description.
+
+   font-size: 1.2rem → légèrement plus grand que le corps normal.
+   margin-bottom: 0 → pas d'espace en bas (le .page-header gère ça).
+*/
+.page-header p {
+  color: #ffffff;
+  opacity: 0.85;
+  font-size: 1.2rem;
+  margin-bottom: 0;
+}
+
+/* ============================================================
+   FOOTER — STYLES DE BASE
+   ============================================================ */
+
+/*
+   .site-footer — le pied de page du site.
+
+   background-color: var(--color-secondary)
+   → fond bleu foncé, cohérent avec l'en-tête des pages.
+
+   color: #94a3b8
+   → gris clair sur fond foncé, lisible sans être agressif.
+
+   padding: var(--spacing-section) 0
+   → 80px en haut et en bas.
+*/
+.site-footer {
+  background-color: var(--color-secondary);
+  color: #94a3b8;
+  padding: var(--spacing-section) 0;
+  margin-top: var(--spacing-section);
+}
+
+/*
+   .footer-brand — nom "AfriTalent" dans le footer.
+
+   color: #ffffff → blanc pour le distinguer du texte gris.
+   font-size: 1.3rem → légèrement plus grand.
+   font-weight: 700 → gras.
+   margin-bottom: 0.5rem → espace sous le nom.
+*/
+.footer-brand {
+  color: #ffffff;
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+/*
+   .footer-title — titres des 4 colonnes du footer.
+
+   color: #ffffff → blanc pour les différencier du contenu.
+   font-size: 0.9rem → légèrement plus petit.
+   font-weight: 700 → gras.
+   text-transform: uppercase → tout en majuscules.
+   letter-spacing: 0.1em → espace entre les lettres pour la lisibilité
+   des textes en majuscules.
+   margin-bottom: 1rem → espace sous le titre.
+*/
+.footer-title {
+  color: #ffffff;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 1rem;
+}
+
+/*
+   .footer-links — listes de liens dans le footer.
+
+   padding: 0 → supprime le padding par défaut des ul.
+   margin: 0 → supprime la marge par défaut des ul.
+*/
+.footer-links {
+  padding: 0;
+  margin: 0;
+}
+
+/*
+   Chaque lien dans le footer.
+
+   margin-bottom: 0.5rem → espace entre chaque lien.
+*/
+.footer-links li {
+  margin-bottom: 0.5rem;
+}
+
+.footer-links a {
+  color: #94a3b8;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+/*
+   Au survol d'un lien footer → orange via --color-primary.
+*/
+.footer-links a:hover {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+/*
+   .footer-contact — liste des informations de contact dans le footer.
+*/
+.footer-contact {
+  padding: 0;
+  margin: 0;
+}
+
+.footer-contact li {
+  color: #94a3b8;
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+/*
+   .social-links — liens des réseaux sociaux.
+
+   display: flex → les icônes en ligne.
+   gap: 1rem → espace entre chaque icône.
+   margin-top: 1rem → espace au-dessus des icônes.
+*/
+.social-links {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.social-links a {
+  color: #94a3b8;
+  font-size: 1.3rem;
+  transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+/*
+   .footer-bottom — ligne de copyright en bas du footer.
+
+   border-top: 1px solid rgba(255,255,255,0.1)
+   → ligne de séparation blanche très transparente (10% d'opacité).
+   Sépare discrètement le copyright des colonnes.
+
+   margin-top: 3rem → espace au-dessus.
+   padding-top: 2rem → espace intérieur au-dessus de la ligne.
+   color: #64748b → gris foncé, plus discret que le texte normal.
+*/
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  margin-top: 3rem;
+  padding-top: 2rem;
+  color: #64748b;
+}
+
+/* ============================================================
+   BOUTON RETOUR EN HAUT
+   Apparaîtra via JavaScript au commit 6
+   ============================================================ */
+
+/*
+   #backToTop — bouton fixe en bas à droite de l'écran.
+
+   position: fixed → reste à la même position même au scroll.
+   bottom: 30px; right: 30px → position en bas à droite.
+   display: none → caché par défaut, JavaScript l'affichera au scroll.
+
+   background-color: var(--color-primary) → fond orange.
+   color: #ffffff → icône blanche.
+   border: none → pas de bordure.
+   border-radius: 50% → forme parfaitement ronde.
+   width: 48px; height: 48px → taille du bouton.
+
+   cursor: pointer → curseur main au survol.
+   z-index: 999 → au-dessus du contenu mais sous la navbar (z-index 1000).
+
+   transition → animation fluide pour l'apparition/disparition.
+*/
+#backToTop {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  display: none;
+  background-color: var(--color-primary);
+  color: #ffffff;
+  border: none;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  z-index: 999;
+  transition:
+    background-color 0.3s ease,
+    transform 0.2s ease;
+  align-items: center;
+  justify-content: center;
+}
+
+#backToTop:hover {
+  background-color: var(--color-accent);
+  transform: translateY(-3px);
+}
+
+/* ============================================================
+   ANIMATIONS SCROLL (préparation pour commit 7)
+   ============================================================ */
+
+/*
+   .animate-section — classe ajoutée sur toutes les sections
+   qui doivent apparaître en fondu au scroll.
+
+   État INITIAL (avant que la section soit visible) :
+   opacity: 0 → complètement invisible.
+   transform: translateY(30px) → décalée de 30px vers le bas.
+
+   transition → anime le passage de l'état initial à l'état final
+   en 0.6 secondes avec une accélération ease.
+
+   Au commit 7, JavaScript utilisera IntersectionObserver pour
+   détecter quand la section entre dans le viewport et ajoutera
+   la classe "visible" qui déclenchera l'animation.
+*/
+.animate-section {
+  opacity: 0;
+  transform: translateY(30px);
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease;
+}
+
+/*
+   .animate-section.visible — état FINAL (quand la section est visible).
+
+   opacity: 1 → complètement visible.
+   transform: translateY(0) → à sa position normale.
+
+   JavaScript ajoutera la classe "visible" grâce à IntersectionObserver.
+*/
+.animate-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}

@@ -23,7 +23,6 @@
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
-    <!-- Le contenu de la page sera ajoute ici -->
     <!-- ===================== NAVBAR ===================== -->
     <header>
       <nav class="navbar navbar-expand-lg fixed-top" id="navbar">
@@ -91,9 +90,11 @@
         </div>
       </nav>
     </header>
+
     <main>
       <!-- ===================== SECTION HERO ===================== -->
-      <section class="hero-section" id="hero">
+      <!-- animate-section : JS commit 7 animera cette section au scroll -->
+      <section class="hero-section animate-section" id="hero">
         <div class="container">
           <div class="row align-items-center">
             <!-- Texte hero -->
@@ -107,13 +108,15 @@
               </h2>
               <div class="hero-buttons">
                 <a href="freelances.html" class="btn btn-primary btn-lg me-3">
-                  <i class="bi bi-person-fill me-2"></i>Je suis Freelance
+                  <i class="bi bi-person-fill me-2" aria-hidden="true"></i>Je
+                  suis Freelance
                 </a>
                 <a
                   href="freelances.html"
                   class="btn btn-outline-primary btn-lg"
                 >
-                  <i class="bi bi-search me-2"></i>Je cherche un Freelance
+                  <i class="bi bi-search me-2" aria-hidden="true"></i>Je cherche
+                  un Freelance
                 </a>
               </div>
             </div>
@@ -151,70 +154,14 @@
           </div>
         </div>
       </section>
+
       <!-- ===================== SECTION COMMENT ÇA MARCHE ===================== -->
-      <section class="how-section comment-ça-marche" id="comment-ça-marche">
-        <div class="container">
-          <h2 class="section-title text-center">Comment ça marche ?</h2>
-          <p class="section-subtitle text-center">
-            En 4 étapes simples, trouvez le freelance idéal ou décrochez votre
-            prochaine mission.
-          </p>
-
-          <!-- Bento Grid -->
-          <div class="bento-grid">
-            <!-- Étape 1 — grande carte -->
-            <div class="bento-card bento-large">
-              <span class="step-number">01</span>
-              <i
-                class="bi bi-person-plus-fill step-icon"
-                aria-hidden="true"
-              ></i>
-              <h3>Créez votre profil</h3>
-              <p>
-                Inscrivez-vous gratuitement et créez un profil détaillé mettant
-                en valeur vos compétences, vos réalisations et votre tarif
-                journalier.
-              </p>
-            </div>
-
-            <!-- Étape 2 -->
-            <div class="bento-card">
-              <span class="step-number">02</span>
-              <i class="bi bi-search step-icon" aria-hidden="true"></i>
-              <h3>Trouvez une mission</h3>
-              <p>
-                Parcourez les offres et postulez aux projets qui correspondent à
-                votre expertise.
-              </p>
-            </div>
-
-            <!-- Étape 3 -->
-            <div class="bento-card">
-              <span class="step-number">03</span>
-              <i class="bi bi-chat-dots-fill step-icon" aria-hidden="true"></i>
-              <h3>Négociez et signez</h3>
-              <p>
-                Discutez des conditions directement avec le client via notre
-                messagerie sécurisée.
-              </p>
-            </div>
-
-            <!-- Étape 4 — grande carte -->
-            <div class="bento-card bento-large">
-              <span class="step-number">04</span>
-              <i class="bi bi-cash-coin step-icon" aria-hidden="true"></i>
-              <h3>Réalisez et soyez payé</h3>
-              <p>
-                Livrez votre travail et recevez votre paiement de façon
-                sécurisée via Mobile Money, virement bancaire ou carte. Votre
-                argent est protégé jusqu'à la validation du client.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-      <!-- ===================== SECTION COMMENT ÇA MARCHE ===================== -->
-      <section class="how-section comment-ça-marche">
+      <!-- animate-section : JS commit 7 animera cette section au scroll -->
+      <!-- CORRECTION : pas d'accents dans les classes et IDs -->
+      <section
+        class="how-section comment-ca-marche animate-section"
+        id="comment-ca-marche"
+      >
         <div class="container">
           <h2 class="section-title text-center">Comment ça marche ?</h2>
           <p class="section-subtitle text-center">
@@ -277,7 +224,8 @@
       </section>
 
       <!-- ===================== SECTION CATÉGORIES DE SERVICES ===================== -->
-      <section class="categories-section" id="categories">
+      <!-- animate-section : JS commit 7 animera cette section au scroll -->
+      <section class="categories-section animate-section" id="categories">
         <div class="container">
           <h2 class="section-title text-center">Nos catégories de services</h2>
           <p class="section-subtitle text-center">
@@ -357,8 +305,10 @@
           </div>
         </div>
       </section>
+
       <!-- ===================== SECTION TÉMOIGNAGES ===================== -->
-      <section class="testimonials-section" id="temoignages">
+      <!-- animate-section : JS commit 7 animera cette section au scroll -->
+      <section class="testimonials-section animate-section" id="temoignages">
         <div class="container">
           <h2 class="section-title text-center">Ce que disent nos membres</h2>
           <p class="section-subtitle text-center">
@@ -377,7 +327,7 @@
                 <div class="testimonial-card text-center">
                   <img
                     src="images/i.jpeg"
-                    alt="Mohamed Lamine Berete"
+                    alt="Photo de Mohamed Lamine Berete"
                     class="testimonial-avatar"
                   />
                   <blockquote>
@@ -406,6 +356,7 @@
               </div>
 
               <!-- Témoignage 2 -->
+              <!-- CORRECTION : rôle cohérent avec une plateforme tech -->
               <div class="carousel-item">
                 <div class="testimonial-card text-center">
                   <img
@@ -423,7 +374,7 @@
                   </blockquote>
                   <cite>
                     <strong>Maïmouna Barry</strong>
-                    <span>Aide-soignant(e) à Domicile — New York, USA</span>
+                    <span>CEO — TechStartup New York, USA</span>
                   </cite>
                   <div
                     class="stars"
@@ -438,6 +389,7 @@
                   </div>
                 </div>
               </div>
+
               <!-- Témoignage 3 -->
               <div class="carousel-item">
                 <div class="testimonial-card text-center">
@@ -466,7 +418,7 @@
                     <i class="bi bi-star-fill" aria-hidden="true"></i>
                     <i class="bi bi-star-fill" aria-hidden="true"></i>
                     <i class="bi bi-star-fill" aria-hidden="true"></i>
-                    <i class="bi bi-star-half" aria-hidden="true"></i>
+                    <i class="bi bi-star-fill" aria-hidden="true"></i>
                     <i class="bi bi-star-half" aria-hidden="true"></i>
                   </div>
                 </div>
@@ -501,8 +453,10 @@
           </div>
         </div>
       </section>
+
       <!-- ===================== SECTION CTA ===================== -->
-      <section class="cta-section" id="cta">
+      <!-- animate-section : JS commit 7 animera cette section au scroll -->
+      <section class="cta-section animate-section" id="cta">
         <div class="container text-center">
           <h2>Prêt à rejoindre la communauté AfriTalent ?</h2>
           <p>
@@ -516,6 +470,7 @@
         </div>
       </section>
     </main>
+
     <!-- ===================== FOOTER ===================== -->
     <footer class="site-footer">
       <div class="container">
@@ -603,10 +558,12 @@
         </div>
       </div>
     </footer>
+
     <!-- Bouton retour en haut (JS au commit 6) -->
     <button id="backToTop" aria-label="Retour en haut de page">
       <i class="bi bi-arrow-up" aria-hidden="true"></i>
     </button>
+
     <!-- Bootstrap 5 via CDN : script JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Votre script JavaScript -->

@@ -4,9 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>AfriTalent — Blog</title>
-    <!-- Bootstrap 5 CSS -->
+    <!-- Google Fonts -->
     <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Inter:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
     <!-- Bootstrap Icons -->
@@ -14,9 +14,10 @@
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
       rel="stylesheet"
     />
-    <!-- Google Fonts -->
+    <!-- Bootstrap 5 via CDN : feuille de style -->
+    <!-- CORRECTION : version 5.3.0 comme toutes les autres pages -->
     <link
-      href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Inter:wght@400;500;600&display=swap"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
       rel="stylesheet"
     />
     <!-- CSS personnalisé -->
@@ -27,7 +28,6 @@
     <header>
       <nav class="navbar navbar-expand-lg fixed-top" id="navbar">
         <div class="container">
-          <!-- Logo -->
           <a class="navbar-brand" href="index.html">
             <img
               src="images/Gemini_Generated_Image_jtmrt1jtmrt1jtmr.png"
@@ -36,8 +36,6 @@
             />
             AfriTalent
           </a>
-
-          <!-- Bouton hamburger mobile -->
           <button
             class="navbar-toggler"
             type="button"
@@ -49,8 +47,6 @@
           >
             <span class="navbar-toggler-icon"></span>
           </button>
-
-          <!-- Liens de navigation -->
           <div class="collapse navbar-collapse" id="navMenu">
             <ul class="navbar-nav ms-auto">
               <li class="nav-item">
@@ -82,7 +78,6 @@
             >
               <i class="bi bi-moon-fill"></i>
             </button>
-            <!-- Bouton CTA -->
             <a href="freelances.html" class="btn btn-primary ms-3"
               >Rejoindre AfriTalent</a
             >
@@ -93,7 +88,8 @@
 
     <main>
       <!-- ===================== EN-TÊTE DE PAGE ===================== -->
-      <section class="page-header">
+      <!-- animate-section : JS commit 7 animera cette section au scroll -->
+      <section class="page-header animate-section">
         <div class="container text-center">
           <h1>Blog AfriTalent</h1>
           <p>
@@ -104,9 +100,11 @@
       </section>
 
       <!-- ===================== GRILLE D'ARTICLES ===================== -->
-      <section class="blog-section">
-        <h2 class="text-center my-4">Les derniers articles</h2>
+      <!-- animate-section : JS commit 7 animera cette section au scroll -->
+      <section class="blog-section animate-section">
         <div class="container">
+          <!-- CORRECTION : h2 maintenant DANS le container + class section-title -->
+          <h2 class="section-title text-center">Les derniers articles</h2>
           <div class="row g-4">
             <!-- Article 1 -->
             <div class="col-lg-4 col-md-6">
@@ -118,10 +116,11 @@
                 />
                 <div class="card-body">
                   <span class="blog-category">Conseils</span>
-                  <h2 class="card-title blog-title">
+                  <!-- CORRECTION : h3 au lieu de h2 -->
+                  <h3 class="card-title blog-title">
                     5 conseils pour décrocher votre première mission sur
                     AfriTalent
-                  </h2>
+                  </h3>
                   <p class="card-text blog-excerpt">
                     Vous venez de créer votre profil et vous ne savez pas par où
                     commencer ? Voici les 5 stratégies que nos meilleurs
@@ -158,9 +157,10 @@
                 />
                 <div class="card-body">
                   <span class="blog-category">Tendances</span>
-                  <h2 class="card-title blog-title">
+                  <!-- CORRECTION : h3 au lieu de h2 -->
+                  <h3 class="card-title blog-title">
                     Les compétences tech les plus demandées en Afrique en 2026
-                  </h2>
+                  </h3>
                   <p class="card-text blog-excerpt">
                     Le marché du travail numérique africain évolue rapidement.
                     Intelligence artificielle, cybersécurité, développement
@@ -197,10 +197,11 @@
                 />
                 <div class="card-body">
                   <span class="blog-category">Tutoriel</span>
-                  <h2 class="card-title blog-title">
+                  <!-- CORRECTION : h3 au lieu de h2 -->
+                  <h3 class="card-title blog-title">
                     Comment fixer son tarif journalier quand on est freelance
                     débutant
-                  </h2>
+                  </h3>
                   <p class="card-text blog-excerpt">
                     Fixer son prix est l'une des étapes les plus difficiles pour
                     un freelance débutant. Trop bas, vous sous-estimez votre
@@ -235,7 +236,6 @@
     <footer class="site-footer">
       <div class="container">
         <div class="row g-4">
-          <!-- Colonne 1 : AfriTalent -->
           <div class="col-lg-3 col-md-6">
             <img
               src="images/Gemini_Generated_Image_jtmrt1jtmrt1jtmr.png"
@@ -263,8 +263,6 @@
               ></a>
             </div>
           </div>
-
-          <!-- Colonne 2 : Liens utiles -->
           <div class="col-lg-3 col-md-6">
             <h4 class="footer-title">Liens utiles</h4>
             <ul class="footer-links">
@@ -275,8 +273,6 @@
               <li><a href="contact.html">Contact</a></li>
             </ul>
           </div>
-
-          <!-- Colonne 3 : Ressources -->
           <div class="col-lg-3 col-md-6">
             <h4 class="footer-title">Ressources</h4>
             <ul class="footer-links">
@@ -287,8 +283,6 @@
               <li><a href="#">Conditions d'utilisation</a></li>
             </ul>
           </div>
-
-          <!-- Colonne 4 : Contact -->
           <div class="col-lg-3 col-md-6">
             <h4 class="footer-title">Contact</h4>
             <ul class="footer-contact">
@@ -307,8 +301,6 @@
             </ul>
           </div>
         </div>
-
-        <!-- Ligne de copyright -->
         <div class="footer-bottom text-center">
           <p>
             &copy; <span id="currentYear"></span> AfriTalent. Tous droits
@@ -318,14 +310,12 @@
       </div>
     </footer>
 
-    <!-- Bouton retour en haut (JS au commit 6) -->
     <button id="backToTop" aria-label="Retour en haut de page">
       <i class="bi bi-arrow-up" aria-hidden="true"></i>
     </button>
 
-    <!-- Bootstrap 5 JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- JavaScript personnalisé -->
+    <!-- CORRECTION : version 5.3.0 comme toutes les autres pages -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="js/main.js"></script>
   </body>
 </html>

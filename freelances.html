@@ -23,7 +23,6 @@
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
-    <!-- Le contenu de la page sera ajoute ici -->
     <!-- ===================== NAVBAR ===================== -->
     <header>
       <nav class="navbar navbar-expand-lg fixed-top" id="navbar">
@@ -34,8 +33,8 @@
               alt="Logo AfriTalent"
               height="40"
             />
+            AfriTalent
           </a>
-
           <button
             class="navbar-toggler"
             type="button"
@@ -47,7 +46,6 @@
           >
             <span class="navbar-toggler-icon"></span>
           </button>
-
           <div class="collapse navbar-collapse" id="navMenu">
             <ul class="navbar-nav ms-auto">
               <li class="nav-item">
@@ -88,9 +86,11 @@
         </div>
       </nav>
     </header>
+
     <main>
       <!-- ===================== EN-TÊTE DE PAGE ===================== -->
-      <section class="page-header">
+      <!-- animate-section : JS commit 7 animera cette section au scroll -->
+      <section class="page-header animate-section">
         <div class="container text-center">
           <h1>Nos freelances</h1>
           <p>
@@ -99,8 +99,11 @@
           </p>
         </div>
       </section>
+
       <!-- ===================== BARRE DE FILTRES ===================== -->
-      <section class="filters-section">
+      <!-- animate-section : JS commit 7 animera cette section au scroll -->
+      <section class="filters-section animate-section">
+        <h2 class="visually-hidden">Filtres de recherche</h2>
         <div class="container">
           <div
             class="filters-bar"
@@ -130,8 +133,11 @@
           </div>
         </div>
       </section>
+
       <!-- ===================== GRILLE DE FREELANCES ===================== -->
-      <section class="freelances-grid-section">
+      <!-- animate-section : JS commit 7 animera cette section au scroll -->
+      <section class="freelances-grid-section animate-section">
+        <h2 class="visually-hidden">Nos freelances</h2>
         <div class="container">
           <div class="row g-4" id="freelancesGrid">
             <!-- Freelance 1 -->
@@ -558,6 +564,7 @@
         </div>
       </section>
     </main>
+
     <!-- ===================== FOOTER ===================== -->
     <footer class="site-footer">
       <div class="container">
@@ -612,13 +619,14 @@
           <div class="col-lg-3 col-md-6">
             <h4 class="footer-title">Contact</h4>
             <ul class="footer-contact">
+              <!-- CORRECTION : numéro unifié sur toutes les pages -->
               <li>
                 <i class="bi bi-geo-alt-fill" aria-hidden="true"></i> 12 Avenue
                 Cheikh Anta Diop, Dakar
               </li>
               <li>
-                <i class="bi bi-telephone-fill" aria-hidden="true"></i> +221 77
-                000 00 00
+                <i class="bi bi-telephone-fill" aria-hidden="true"></i> +221 71
+                004 38 40
               </li>
               <li>
                 <i class="bi bi-envelope-fill" aria-hidden="true"></i>
@@ -640,9 +648,7 @@
       <i class="bi bi-arrow-up" aria-hidden="true"></i>
     </button>
 
-    <!-- Bootstrap 5 via CDN : script JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Votre script JavaScript -->
     <script src="js/main.js"></script>
   </body>
 </html>
