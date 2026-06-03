@@ -247,6 +247,7 @@ img {
   display: block;
   object-fit: cover;
 }
+/* .freelance-avatar — avatar rond utilisé dans la page freelances.html */
 .freelance-avatar {
   width: 150px;
   height: 150px;
@@ -255,6 +256,7 @@ img {
   object-position: center top;
   flex-shrink: 0; /* Empêche les images de rétrécir dans les conteneurs flex */
 }
+/* #logo — logo principal dans la navbar. On limite la largeur pour conserver un affichage propre. */
 #logo {
   max-width: 100px;
   height: auto;
@@ -262,6 +264,7 @@ img {
   object-fit: cover;
 }
 
+/* #footer-logo — logo réduit dans le pied de page. */
 #footer-logo {
   max-width: 100px;
   height: auto;
@@ -269,9 +272,24 @@ img {
   object-fit: cover;
 } /* ============================================================
    BOUTONS DE FILTRAGE DES CATÉGORIES
+   Utilisés sur la page freelances.html pour filtrer par compétence
    ============================================================ */
+
 /*
-   .filter-btn — style de base des boutons de filtrage des catégories.*/
+   .filter-btn — style de base des boutons de filtrage des catégories.
+   
+   Chaque bouton représente une catégorie de freelances :
+   "Tous", "Développement Web", "Design", etc.
+   
+   Propriétés :
+   - background-color: #f5f5f5 → fond gris clair par défaut
+   - color: var(--color-secondary) → texte bleu foncé
+   - border: none → supprime la bordure par défaut
+   - border-radius: 50px → forme "pilule" arrondie et moderne
+   - padding: 0.5rem 1.5rem → zone cliquable confortable
+   - font-weight: 600 → semi-gras pour la lisibilité
+   - transition: all 0.3s ease → animation fluide lors du changement d'état
+*/
 
 .filter-btn {
   background-color: #f5f5f5;
@@ -281,7 +299,21 @@ img {
   padding: 0.5rem 1.5rem;
   font-weight: 600; /* Semi-gras pour la lisibilité des boutons */
   transition: all 0.3s ease; /* Animation fluide pour les changements de style */
-} /* Au survol d'un bouton de filtre : fond orange, texte blanc */
+  cursor: pointer; /* Curseur main pour indiquer cliquabilité */
+}
+
+/*
+   .filter-btn.active — état actif du bouton quand le filtre est appliqué.
+   
+   Quand l'utilisateur clique sur un bouton de filtre, JavaScript exécute :
+   - .forEach() sur chaque bouton pour enlever la classe 'active'
+   - Puis ajoute 'active' au bouton cliqué
+   
+   Propriétés :
+   - background-color: var(--color-primary) → fond orange de marque
+   - color: #ffffff → texte blanc (bon contraste sur orange)
+   - L'effet visuel indique clairement quel filtre est appliqué actuellement
+*/
 .filter-btn.active {
   background-color: var(--color-primary);
   color: #ffffff;
@@ -290,6 +322,14 @@ img {
   padding: 0.5rem 1.5rem;
   font-weight: 600;
   transition: all 0.3s ease;
+}
+
+/*
+   Au survol d'un bouton : léger changement pour indiquer l'interactivité
+*/
+.filter-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 /*

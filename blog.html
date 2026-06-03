@@ -90,6 +90,7 @@
     <main>
       <!-- ===================== EN-TÊTE DE PAGE ===================== -->
       <!-- animate-section : JS commit 7 animera cette section au scroll -->
+      <!-- Section d'introduction présentant le blog et ses ressources pour freelances tech -->
       <section class="page-header animate-section">
         <div class="container text-center">
           <h1>Blog AfriTalent</h1>
@@ -101,27 +102,65 @@
       </section>
 
       <!-- ===================== GRILLE D'ARTICLES ===================== -->
-      <!-- animate-section : JS commit 7 animera cette section au scroll -->
+      <!-- 
+        Section listant les derniers articles publiés sur le blog
+        - animate-section: JS commit 7 animera cette section au scroll
+        - Affiche 3 articles dans une grille responsive avec cartes structurées
+      -->
       <section class="blog-section animate-section">
         <div class="container">
-          <!-- CORRECTION : h2 maintenant DANS le container + class section-title -->
+          <!-- Titre de la section de blog -->
           <h2 class="section-title text-center mb-5">Les derniers articles</h2>
+
+          <!-- 
+            Grille responsive Bootstrap pour les articles
+            - col-lg-4 col-md-6: 3 colonnes sur desktop, 2 sur tablette, 1 sur mobile
+            - g-3: Gap de 3 entre les colonnes
+          -->
           <div class="row g-3">
-            <!-- Article 1 -->
+            <!-- ===== ARTICLE 1 ===== -->
+            <!-- 
+              Carte d'article complète avec image, titre, extrait, catégorie et CTA
+              - blog-card: Classe pour les styles de carte d'article
+              - h-100: Hauteur égale pour tous les articles de la ligne
+            -->
             <div class="col-lg-4 col-md-6">
               <article class="blog-card card h-100">
+                <!-- 
+                  Image principale de l'article
+                  - blog-img: Classe pour le style de l'image
+                  - card-img-top: Position Bootstrap en haut de la carte
+                -->
                 <img
                   src="images/pexels-gustavo-fring-6285074.jpg"
                   alt="Illustration représentant un freelance africain devant son ordinateur"
                   class="card-img-top blog-img"
                 />
+
+                <!-- Corps de la carte: catégorie, titre, extrait -->
                 <div class="card-body">
+                  <!-- 
+                    Badge de catégorie
+                    - blog-category: Classe pour le style du badge
+                    - Aide à classifier et naviguer les articles
+                  -->
                   <span class="blog-category">Conseils</span>
-                  <!-- CORRECTION : h3 au lieu de h2 -->
+
+                  <!-- 
+                    Titre de l'article
+                    - h3 pour la hiérarchie sémantique (h1=page title, h2=section, h3=article)
+                    - blog-title: Classe pour le style
+                  -->
                   <h3 class="card-title blog-title">
                     5 conseils pour décrocher votre première mission sur
                     AfriTalent
                   </h3>
+
+                  <!-- 
+                    Extrait de l'article
+                    - blog-excerpt: Classe pour limiter la hauteur et créer une ellipse
+                    - Donne un aperçu du contenu
+                  -->
                   <p class="card-text blog-excerpt">
                     Vous venez de créer votre profil et vous ne savez pas par où
                     commencer ? Voici les 5 stratégies que nos meilleurs
@@ -129,17 +168,32 @@
                     mission.
                   </p>
                 </div>
+
+                <!-- Pied de carte: métadonnées et CTA -->
                 <div class="card-footer">
+                  <!-- 
+                    Métadonnées de l'article
+                    - blog-meta: Classe pour le conteneur
+                    - Affiche l'auteur et la date de publication
+                  -->
                   <div class="blog-meta">
+                    <!-- Auteur de l'article -->
                     <span
                       ><i class="bi bi-person-fill" aria-hidden="true"></i>
                       Monsieur Dupont</span
                     >
+                    <!-- Date de publication -->
                     <span
                       ><i class="bi bi-calendar3" aria-hidden="true"></i> 15
                       avril 2026</span
                     >
                   </div>
+
+                  <!-- 
+                    Bouton d'appel à l'action
+                    - w-100: Largeur 100% pour utiliser tout l'espace
+                    - mt-3: Marge supérieure pour espacer du contenu
+                  -->
                   <a href="#" class="btn btn-outline-primary w-100 mt-3">
                     Lire l'article
                     <i class="bi bi-arrow-right" aria-hidden="true"></i>
@@ -148,7 +202,7 @@
               </article>
             </div>
 
-            <!-- Article 2 -->
+            <!-- ===== ARTICLE 2 ===== -->
             <div class="col-lg-4 col-md-6">
               <article class="blog-card card h-100">
                 <img
@@ -158,7 +212,6 @@
                 />
                 <div class="card-body">
                   <span class="blog-category">Tendances</span>
-                  <!-- CORRECTION : h3 au lieu de h2 -->
                   <h3 class="card-title blog-title">
                     Les compétences tech les plus demandées en Afrique en 2026
                   </h3>
@@ -188,7 +241,7 @@
               </article>
             </div>
 
-            <!-- Article 3 -->
+            <!-- ===== ARTICLE 3 ===== -->
             <div class="col-lg-4 col-md-6">
               <article class="blog-card card h-100">
                 <img
@@ -198,7 +251,6 @@
                 />
                 <div class="card-body">
                   <span class="blog-category">Tutoriel</span>
-                  <!-- CORRECTION : h3 au lieu de h2 -->
                   <h3 class="card-title blog-title">
                     Comment fixer son tarif journalier quand on est freelance
                     débutant
@@ -234,6 +286,7 @@
     </main>
 
     <!-- ===================== FOOTER ===================== -->
+    <!-- Pied de page global partagé par toutes les pages du site -->
     <footer class="site-footer">
       <div class="container">
         <div class="row g-4">

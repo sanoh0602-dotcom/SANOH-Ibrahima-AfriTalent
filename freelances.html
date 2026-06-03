@@ -4,29 +4,36 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>AfriTalent — Freelances</title>
-    <!-- Google Fonts -->
+    <!-- Google Fonts : import des polices Syne et Inter pour les titres et le texte -->
     <link
       href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Inter:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
-    <!-- Bootstrap Icons -->
+    <!-- Bootstrap Icons : icônes vectorielles pour les badges, étoiles et boutons -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
       rel="stylesheet"
     />
-    <!-- Bootstrap 5 via CDN : feuille de style -->
+    <!-- Bootstrap 5 via CDN : feuille de style de base pour la mise en page responsive et les composants -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
       rel="stylesheet"
     />
-    <!-- Votre feuille de style personnelle -->
+    <!-- Feuille de style personnalisée du site AfriTalent -->
     <link rel="stylesheet" href="./css/style.css" />
   </head>
   <body>
     <!-- ===================== NAVBAR ===================== -->
+    <!-- 
+      Barre de navigation fixe avec liens vers les pages principales et actions utilisateur
+      - fixed-top: Navbar reste visible au scroll
+      - navbar-expand-lg: Menu se déplie à partir de lg (992px), repliable sur mobile
+      - data-bs-toggle="collapse": Active le collapse Bootstrap pour le menu responsif
+    -->
     <header>
       <nav class="navbar navbar-expand-lg fixed-top" id="navbar">
         <div class="container">
+          <!-- Logo et nom de la marque -->
           <a class="navbar-brand" href="index.html">
             <img
               id="logo"
@@ -36,6 +43,8 @@
             />
             AfriTalent
           </a>
+
+          <!-- Bouton hamburger pour mobile - contrôle du menu responsif -->
           <button
             class="navbar-toggler"
             type="button"
@@ -47,12 +56,16 @@
           >
             <span class="navbar-toggler-icon"></span>
           </button>
+
+          <!-- Menu de navigation qui se replie sur mobile grâce à Bootstrap collapse -->
           <div class="collapse navbar-collapse" id="navMenu">
+            <!-- Liens de navigation main - ms-auto aligne à droite -->
             <ul class="navbar-nav ms-auto">
               <li class="nav-item">
                 <a class="nav-link" href="index.html">Accueil</a>
               </li>
               <li class="nav-item">
+                <!-- aria-current="page" indique à l'écran la page actuelle -->
                 <a
                   class="nav-link active"
                   aria-current="page"
@@ -73,6 +86,8 @@
                 <a class="nav-link" href="contact.html">Contact</a>
               </li>
             </ul>
+
+            <!-- Bouton d'activation du mode sombre (JS commit 6) -->
             <button
               class="btn btn-outline-secondary ms-3"
               id="darkModeToggle"
@@ -80,6 +95,8 @@
             >
               <i class="bi bi-moon-fill"></i>
             </button>
+
+            <!-- CTA principal - Bouton d'appel à l'action pour rejoindre la plateforme -->
             <a href="freelances.html" class="btn btn-primary ms-3"
               >Rejoindre AfriTalent</a
             >
@@ -91,6 +108,7 @@
     <main>
       <!-- ===================== EN-TÊTE DE PAGE ===================== -->
       <!-- animate-section : JS commit 7 animera cette section au scroll -->
+      <!-- Section d'introduction présentant les freelances disponibles sur AfriTalent -->
       <section class="page-header animate-section">
         <div class="container text-center">
           <h1>Nos freelances</h1>
@@ -102,16 +120,30 @@
       </section>
 
       <!-- ===================== BARRE DE FILTRES ===================== -->
-      <!-- animate-section : JS commit 7 animera cette section au scroll -->
+      <!-- 
+        Système de filtrage par catégorie pour les freelances
+        - animate-section: JS commit 7 animera cette section au scroll
+        - role="group" + aria-label: Indique aux lecteurs d'écran que c'est un groupe de filtres
+        - data-category: Attribut utilisé par le JavaScript pour filtrer les cartes freelances
+      -->
       <section class="filters-section animate-section mb-4">
         <h2 class="visually-hidden">Filtres de recherche</h2>
         <div class="container">
+          <!-- 
+            Barre de boutons de filtrage
+            - data-category: Correspond à la catégorie des cartes freelance (.freelance-item)
+            - class="active": Le bouton actif indique le filtre appliqué actuellement
+          -->
           <div
             class="filters-bar"
             role="group"
             aria-label="Filtrer les freelances par catégorie"
           >
-            <!-- Filtres par catégorie (JS au commit 8) -->
+            <!-- 
+              Boutons de filtre - chaque bouton porte un data-category qui filtre les freelances
+              - "tous": Affiche tous les freelances (pas de filtre)
+              - Les autres valeurs correspondent à data-category des cartes .freelance-item
+            -->
             <button class="filter-btn active" data-category="tous">Tous</button>
             <button class="filter-btn" data-category="dev-web">
               Développement Web
@@ -136,18 +168,35 @@
       </section>
 
       <!-- ===================== GRILLE DE FREELANCES ===================== -->
-      <!-- animate-section : JS commit 7 animera cette section au scroll -->
+      <!-- 
+        Section contenant les cartes de freelances avec système de filtrage
+        - animate-section: JS commit 7 animera cette section au scroll
+        - #freelancesGrid: ID utilisé pour sélectionner le container lors du filtrage
+      -->
       <section class="freelances-grid-section animate-section">
         <h2 class="visually-hidden">Nos freelances</h2>
         <div class="container">
+          <!-- 
+            Grille responsive Bootstrap avec gap de 4
+            - col-lg-4: 3 colonnes sur desktop
+            - col-md-6: 2 colonnes sur tablette
+            - Responsive: 1 colonne sur mobile
+          -->
           <div class="row g-4" id="freelancesGrid">
-            <!-- Freelance 1 -->
+            <!-- ===== Freelance 1 ===== -->
+            <!-- 
+              Carte freelance avec structure complète pour le modal
+              - freelance-item: Classe de sélection pour le filtrage JS
+              - data-category="dev-web": Catégorie pour le filtre (correspond aux boutons filtre)
+              - card h-100: Hauteur égale pour tous les éléments de la ligne
+            -->
             <div
               class="col-lg-4 col-md-6 freelance-item"
               data-category="dev-web"
             >
               <article class="freelance-card card h-100">
                 <div class="card-body">
+                  <!-- En-tête de la carte: photo + nom + spécialité -->
                   <div class="freelance-header">
                     <img
                       src="images/K_(2).jpeg"
@@ -161,15 +210,25 @@
                       >
                     </div>
                   </div>
+
+                  <!-- Description/bio du freelance -->
                   <p class="card-text freelance-bio">
                     Expert React et Node.js avec 5 ans d'expérience. Spécialisée
                     dans les applications SaaS pour startups africaines.
                   </p>
+
+                  <!-- Métadonnées: tarif horaire et évaluation -->
                   <div class="freelance-meta">
                     <span class="freelance-rate"
                       ><i class="bi bi-currency-dollar" aria-hidden="true"></i>
                       35 000 FCFA / heure</span
                     >
+                    <!-- 
+                      Affichage des étoiles d'évaluation
+                      - role="img": Indique que c'est une image
+                      - aria-label: Description pour les lecteurs d'écran
+                      - bi-star-fill / bi-star-half: Icônes Bootstrap pour les étoiles pleines/demi
+                    -->
                     <div
                       class="stars"
                       role="img"
@@ -183,13 +242,35 @@
                     </div>
                   </div>
                 </div>
+
+                <!-- Pied de carte avec bouton d'action -->
                 <div class="card-footer">
-                  <a href="#" class="btn btn-primary w-100">Voir le profil</a>
+                  <!-- 
+                    Bouton d'ouverture du modal profil
+                    - data-bs-toggle="modal": Active le modal Bootstrap
+                    - data-bs-target="#profileModal": Cible le modal avec l'ID profileModal
+                    - data-* : Attributs personnalisés passés au JavaScript pour remplir le modal
+                  -->
+                  <button
+                    type="button"
+                    class="btn btn-primary w-100"
+                    data-bs-toggle="modal"
+                    data-bs-target="#profileModal"
+                    data-nom="Fatima Kaloga"
+                    data-specialite="Développeuse Full Stack"
+                    data-tarif="35 000 FCFA / heure"
+                    data-note="5 étoiles sur 5"
+                    data-bio="Expert React et Node.js avec 5 ans d'expérience. Spécialisée dans les applications SaaS pour startups africaines."
+                    data-photo="images/K_(2).jpeg"
+                    aria-label="Voir le profil de Fatima Kaloga"
+                  >
+                    Voir le profil
+                  </button>
                 </div>
               </article>
             </div>
 
-            <!-- Freelance 2 -->
+            <!-- ===== Freelance 2 ===== -->
             <div
               class="col-lg-4 col-md-6 freelance-item"
               data-category="design"
@@ -230,12 +311,26 @@
                   </div>
                 </div>
                 <div class="card-footer">
-                  <a href="#" class="btn btn-primary w-100">Voir le profil</a>
+                  <button
+                    type="button"
+                    class="btn btn-primary w-100"
+                    data-bs-toggle="modal"
+                    data-bs-target="#profileModal"
+                    data-nom="Abdoulaye Dabo"
+                    data-specialite="Designer UI/UX"
+                    data-tarif="28 000 FCFA / heure"
+                    data-note="4.5 étoiles sur 5"
+                    data-bio="Créatrice d'interfaces élégantes et accessibles. Portfolio comprenant plus de 40 projets mobiles et web."
+                    data-photo="images/A.jpeg"
+                    aria-label="Voir le profil de Abdoulaye Dabo"
+                  >
+                    Voir le profil
+                  </button>
                 </div>
               </article>
             </div>
 
-            <!-- Freelance 3 -->
+            <!-- ===== Freelance 3 ===== -->
             <div
               class="col-lg-4 col-md-6 freelance-item"
               data-category="data-ia"
@@ -276,12 +371,26 @@
                   </div>
                 </div>
                 <div class="card-footer">
-                  <a href="#" class="btn btn-primary w-100">Voir le profil</a>
+                  <button
+                    type="button"
+                    class="btn btn-primary w-100"
+                    data-bs-toggle="modal"
+                    data-bs-target="#profileModal"
+                    data-nom="Ibrahim Bah"
+                    data-specialite="Data Scientist"
+                    data-tarif="42 000 FCFA / heure"
+                    data-note="5 étoiles sur 5"
+                    data-bio="Spécialiste Machine Learning et analyse de données. Diplômé de l'Université de Lagos, expérience internationale."
+                    data-photo="images/Gemini_Generated_Image_x51fjpx51fjpx51f.png"
+                    aria-label="Voir le profil de Ibrahim Bah"
+                  >
+                    Voir le profil
+                  </button>
                 </div>
               </article>
             </div>
 
-            <!-- Freelance 4 -->
+            <!-- ===== Freelance 4 ===== -->
             <div
               class="col-lg-4 col-md-6 freelance-item"
               data-category="devops"
@@ -291,11 +400,11 @@
                   <div class="freelance-header">
                     <img
                       src="images/MD.jpeg"
-                      alt="Photo de profil de Mohamed Dabo"
+                      alt="Photo de profil de Mohamed dabod"
                       class="freelance-avatar"
                     />
                     <div>
-                      <h3 class="card-title">Mohamed Dabo</h3>
+                      <h3 class="card-title">Mohamed Dabod</h3>
                       <span class="freelance-specialty">DevOps Engineer</span>
                     </div>
                   </div>
@@ -322,12 +431,26 @@
                   </div>
                 </div>
                 <div class="card-footer">
-                  <a href="#" class="btn btn-primary w-100">Voir le profil</a>
+                  <button
+                    type="button"
+                    class="btn btn-primary w-100"
+                    data-bs-toggle="modal"
+                    data-bs-target="#profileModal"
+                    data-nom="Mohamed Dabo"
+                    data-specialite="DevOps Engineer"
+                    data-tarif="50 000 FCFA / heure"
+                    data-note="5 étoiles sur 5"
+                    data-bio="Experte AWS et Kubernetes. Automatise les pipelines CI/CD pour des équipes de 5 à 200 développeurs."
+                    data-photo="images/MD.jpeg"
+                    aria-label="Voir le profil de Mohamed Dabo"
+                  >
+                    Voir le profil
+                  </button>
                 </div>
               </article>
             </div>
 
-            <!-- Freelance 5 -->
+            <!-- ===== Freelance 5 ===== -->
             <div
               class="col-lg-4 col-md-6 freelance-item"
               data-category="marketing"
@@ -368,7 +491,21 @@
                   </div>
                 </div>
                 <div class="card-footer">
-                  <a href="#" class="btn btn-primary w-100">Voir le profil</a>
+                  <button
+                    type="button"
+                    class="btn btn-primary w-100"
+                    data-bs-toggle="modal"
+                    data-bs-target="#profileModal"
+                    data-nom="Hassane Sidime"
+                    data-specialite="Growth Marketer"
+                    data-tarif="22 000 FCFA / heure"
+                    data-note="4 étoiles sur 5"
+                    data-bio="Spécialiste SEO, publicité Facebook et Google Ads. A généré plus de 500M FCFA de revenus pour ses clients."
+                    data-photo="images/HS.jpeg"
+                    aria-label="Voir le profil de Hassane Sidime"
+                  >
+                    Voir le profil
+                  </button>
                 </div>
               </article>
             </div>
@@ -387,9 +524,7 @@
                       class="freelance-avatar"
                     />
                     <div>
-                      <h3 id="freelance-6" class="card-title">
-                        Madame Aîcha Camara
-                      </h3>
+                      <h3 class="card-title">Madame Aîcha Camara</h3>
                       <span class="freelance-specialty">Tech Writer</span>
                     </div>
                   </div>
@@ -417,7 +552,21 @@
                   </div>
                 </div>
                 <div class="card-footer">
-                  <a href="#" class="btn btn-primary w-100">Voir le profil</a>
+                  <button
+                    type="button"
+                    class="btn btn-primary w-100"
+                    data-bs-toggle="modal"
+                    data-bs-target="#profileModal"
+                    data-nom="Madame Aîcha Camara"
+                    data-specialite="Tech Writer"
+                    data-tarif="18 000 FCFA / heure"
+                    data-note="4.5 étoiles sur 5"
+                    data-bio="Rédactrice technique bilingue (FR/EN). Spécialisée dans la documentation API, les guides développeurs et les articles de blog tech."
+                    data-photo="images/AC.jpeg"
+                    aria-label="Voir le profil de Madame Aîcha Camara"
+                  >
+                    Voir le profil
+                  </button>
                 </div>
               </article>
             </div>
@@ -438,14 +587,13 @@
                     <div>
                       <h3 class="card-title">Marie Sylla</h3>
                       <span class="freelance-specialty"
-                        >Développeuse Mobile</span
+                        >Développeur Mobile</span
                       >
                     </div>
                   </div>
                   <p class="card-text freelance-bio">
-                    Développeuse Flutter et React Native avec 4 ans
-                    d'expérience. A publié 12 applications sur les stores iOS et
-                    Android.
+                    Développeur Flutter et React Native avec 4 ans d'expérience.
+                    A publié 12 applications sur les stores iOS et Android.
                   </p>
                   <div class="freelance-meta">
                     <span class="freelance-rate"
@@ -466,7 +614,21 @@
                   </div>
                 </div>
                 <div class="card-footer">
-                  <a href="#" class="btn btn-primary w-100">Voir le profil</a>
+                  <button
+                    type="button"
+                    class="btn btn-primary w-100"
+                    data-bs-toggle="modal"
+                    data-bs-target="#profileModal"
+                    data-nom="Marie Sylla"
+                    data-specialite="Développeuse Mobile"
+                    data-tarif="38 000 FCFA / heure"
+                    data-note="5 étoiles sur 5"
+                    data-bio="Développeuse Flutter et React Native avec 4 ans d'expérience. A publié 12 applications sur les stores iOS et Android."
+                    data-photo="images/pexels-ndumiso-zimu-282936158-37609357.jpg"
+                    aria-label="Voir le profil de Marie Sylla"
+                  >
+                    Voir le profil
+                  </button>
                 </div>
               </article>
             </div>
@@ -513,7 +675,21 @@
                   </div>
                 </div>
                 <div class="card-footer">
-                  <a href="#" class="btn btn-primary w-100">Voir le profil</a>
+                  <button
+                    type="button"
+                    class="btn btn-primary w-100"
+                    data-bs-toggle="modal"
+                    data-bs-target="#profileModal"
+                    data-nom="Léa Gbandi"
+                    data-specialite="Motion Designer"
+                    data-tarif="25 000 FCFA / heure"
+                    data-note="4 étoiles sur 5"
+                    data-bio="Animatrice 2D et motion designer. Crée des vidéos explicatives, des intros de marque et des animations pour les réseaux sociaux."
+                    data-photo="images/Gemini_Generated_Image_qjejgpqjejgpqjej.png"
+                    aria-label="Voir le profil de Léa Gbandi"
+                  >
+                    Voir le profil
+                  </button>
                 </div>
               </article>
             </div>
@@ -560,19 +736,135 @@
                   </div>
                 </div>
                 <div class="card-footer">
-                  <a href="#" class="btn btn-primary w-100">Voir le profil</a>
+                  <button
+                    type="button"
+                    class="btn btn-primary w-100"
+                    data-bs-toggle="modal"
+                    data-bs-target="#profileModal"
+                    data-nom="Sedy Joe"
+                    data-specialite="Ingénieur IA"
+                    data-tarif="55 000 FCFA / heure"
+                    data-note="5 étoiles sur 5"
+                    data-bio="Expert en NLP et modèles de langage. Développe des solutions IA adaptées aux langues africaines comme le wolof et le haoussa."
+                    data-photo="images/pexels-cede-joey-2050570-28991537.jpg"
+                    aria-label="Voir le profil de Sedy Joe"
+                  >
+                    Voir le profil
+                  </button>
                 </div>
               </article>
             </div>
           </div>
         </div>
       </section>
+
+      <!-- ============================================================ -->
+      <!-- MODAL BOOTSTRAP — PROFIL FREELANCE                           -->
+      <!-- 
+        Modal pour afficher le profil détaillé d'un freelance
+        - S'ouvre au clic sur "Voir le profil" des cartes
+        - Bootstrap gère l'ouverture/fermeture automatiquement
+        - JavaScript met à jour le contenu selon le freelance cliqué
+        - role="dialog" : Indique aux lecteurs d'écran que c'est une fenêtre modale
+        - aria-labelledby: Lie le modal à son titre pour l'accessibilité
+      -->
+      <div
+        class="modal fade"
+        id="profileModal"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="profileModalLabel"
+        aria-hidden="true"
+      >
+        <!-- modal-dialog-centered: Centrage vertical du modal sur la page -->
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <!-- EN-TÊTE DU MODAL -->
+            <div class="modal-header">
+              <!-- Titre du modal - mis à jour par JavaScript -->
+              <h2 class="modal-title fs-5" id="profileModalLabel">
+                Profil du freelance
+              </h2>
+              <!-- 
+                Bouton fermer (X)
+                - data-bs-dismiss="modal": Bootstrap ferme automatiquement le modal
+              -->
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Fermer la fenêtre"
+              ></button>
+            </div>
+
+            <!-- CORPS DU MODAL - Contenu détaillé du freelance -->
+            <div class="modal-body text-center">
+              <!-- 
+                Photo du freelance - met à jour par JavaScript avec data-photo
+                - id="modal-photo": Cible de mise à jour JavaScript
+              -->
+              <img
+                id="modal-photo"
+                src="#"
+                alt=" Photo de profil du freelance"
+                class="testimonial-avatar mb-3"
+              />
+
+              <!-- Nom du freelance - mis à jour par JavaScript avec data-nom -->
+              <h3 id="modal-nom" class="mb-1"></h3>
+
+              <!-- Spécialité/Rôle - mis à jour avec data-specialite -->
+              <p id="modal-specialite" class="text-primary fw-bold mb-1"></p>
+
+              <!-- Tarif horaire - mis à jour avec data-tarif -->
+              <p id="modal-tarif" class="text-muted small mb-1">
+                <i class="bi bi-currency-dollar" aria-hidden="true"></i>
+                <span id="modal-tarif-valeur"></span>
+              </p>
+
+              <!-- Évaluation - mis à jour avec data-note -->
+              <p id="modal-note" class="text-muted small mb-3"></p>
+
+              <!-- Biographie/description - mis à jour avec data-bio -->
+              <p id="modal-bio" class="text-muted"></p>
+            </div>
+
+            <!-- PIED DU MODAL - Boutons d'action -->
+            <div class="modal-footer">
+              <!-- 
+                Bouton CTA principal - redirige vers la page de contact
+                - Permet au client de contacter le freelance
+              -->
+              <a href="contact.html" class="btn btn-primary">
+                <i class="bi bi-envelope-fill me-2" aria-hidden="true"></i>
+                Contacter
+              </a>
+              <!-- Bouton fermer le modal -->
+              <button
+                type="button"
+                class="btn btn-outline-secondary"
+                data-bs-dismiss="modal"
+              >
+                Fermer
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- FIN DU MODAL -->
     </main>
 
     <!-- ===================== FOOTER ===================== -->
+    <!-- 
+      Pied de page global du site, utilisé sur toutes les pages
+      - Contient la marque, liens utiles, ressources et informations de contact
+      - row g-4: Grille Bootstrap avec gap de 4 pour l'espacement
+      - col-lg-3 col-md-6: Responsive - 4 colonnes sur desktop, 2 sur tablette
+    -->
     <footer class="site-footer">
       <div class="container">
         <div class="row g-4">
+          <!-- Colonne 1: Logo et réseaux sociaux -->
           <div class="col-lg-3 col-md-6">
             <img
               id="footer-logo"
@@ -586,6 +878,7 @@
               La plateforme de référence pour connecter les freelances tech
               africains aux meilleures opportunités mondiales.
             </p>
+            <!-- Liens vers les réseaux sociaux -->
             <div class="social-links">
               <a href="#" aria-label="Facebook AfriTalent"
                 ><i class="bi bi-facebook" aria-hidden="true"></i
@@ -601,6 +894,8 @@
               ></a>
             </div>
           </div>
+
+          <!-- Colonne 2: Liens utiles vers les pages principales -->
           <div class="col-lg-3 col-md-6">
             <h4 class="footer-title">Liens utiles</h4>
             <ul class="footer-links">
@@ -611,6 +906,8 @@
               <li><a href="contact.html">Contact</a></li>
             </ul>
           </div>
+
+          <!-- Colonne 3: Ressources et informations légales -->
           <div class="col-lg-3 col-md-6">
             <h4 class="footer-title">Ressources</h4>
             <ul class="footer-links">
@@ -649,11 +946,14 @@
       </div>
     </footer>
 
+    <!-- Bouton retour en haut, géré par le script principal pour s'afficher au scroll -->
     <button id="backToTop" aria-label="Retour en haut de page">
       <i class="bi bi-arrow-up" aria-hidden="true"></i>
     </button>
 
+    <!-- Script Bootstrap pour le modal et les composants interactifs -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Script JavaScript principal du site : thème, scroll, filtres, formulaire, modal -->
     <script src="js/main.js"></script>
   </body>
 </html>

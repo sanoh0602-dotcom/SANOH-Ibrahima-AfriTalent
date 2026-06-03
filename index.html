@@ -1,29 +1,39 @@
 <!doctype html>
 <html lang="fr">
   <head>
+    <!-- META : Encodage et viewport pour le responsive design -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>AfriTalent — Accueil</title>
-    <!-- Bootstrap Icons -->
+
+    <!-- RESSOURCES EXTERNES : Polices, icônes et frameworks -->
+
+    <!-- Bootstrap Icons : icônes vectorielles (lune, soleil, flèches, etc.) -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
       rel="stylesheet"
     />
-    <!-- Google Fonts -->
+
+    <!-- Google Fonts : polices de haute qualité -->
+    <!-- Syne : police expressive pour les titres (poids : 400, 700, 800) -->
+    <!-- Inter : police moderne pour le corps du texte (poids : 400, 500, 600) -->
     <link
       href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Inter:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
-    <!-- Bootstrap 5 via CDN : feuille de style -->
+
+    <!-- Bootstrap 5 via CDN : framework responsive, composants, classes utilitaires -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
       rel="stylesheet"
     />
-    <!-- Votre feuille de style personnelle -->
+
+    <!-- Feuille de style personnalisée : variables CSS, animations, design spécifique AfriTalent -->
     <link rel="stylesheet" href="./css/style.css" />
   </head>
   <body>
     <!-- ===================== NAVBAR ===================== -->
+    <!-- Barre de navigation fixe en haut de la page, avec liens et actions -->
     <header>
       <nav class="navbar navbar-expand-lg fixed-top" id="navbar">
         <div class="container">
@@ -38,7 +48,7 @@
             AfriTalent
           </a>
 
-          <!-- Bouton hamburger mobile -->
+          <!-- Bouton hamburger mobile : ouvre et ferme le menu de navigation sur petits écrans -->
           <button
             class="navbar-toggler"
             type="button"
@@ -58,6 +68,7 @@
                 <a class="nav-link active" aria-current="page" href="index.html"
                   >Accueil</a
                 >
+                <!-- CORRECTION : lien vers la page d'accueil (index.html) au lieu de #hero pour une navigation plus fluide et éviter les problèmes de scroll sur certains appareils -->
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="freelances.html">Freelances</a>
@@ -95,6 +106,7 @@
     <main>
       <!-- ===================== SECTION HERO ===================== -->
       <!-- animate-section : JS commit 7 animera cette section au scroll -->
+      <!-- Section principale de la page d'accueil avec message, CTA et illustration -->
       <section class="hero-section animate-section" id="hero">
         <div class="container">
           <div class="row align-items-center">
@@ -132,7 +144,7 @@
             </div>
           </div>
 
-          <!-- Statistiques animées (JS au commit 7) -->
+          <!-- Statistiques animées (JS au commit 7) : compteurs qui passent de 0 à la valeur cible -->
           <div class="row stats-row text-center">
             <div class="col-md-4">
               <div class="stat-card">
@@ -158,7 +170,7 @@
 
       <!-- ===================== SECTION COMMENT ÇA MARCHE ===================== -->
       <!-- animate-section : JS commit 7 animera cette section au scroll -->
-      <!-- CORRECTION : pas d'accents dans les classes et IDs -->
+      <!-- Section expliquant le fonctionnement d'AfriTalent en 4 étapes -->
       <section
         class="how-section comment-ca-marche animate-section"
         id="comment-ca-marche"
@@ -226,6 +238,7 @@
 
       <!-- ===================== SECTION CATÉGORIES DE SERVICES ===================== -->
       <!-- animate-section : JS commit 7 animera cette section au scroll -->
+      <!-- Section présentant les domaines de compétences disponibles sur la plateforme -->
       <section class="categories-section animate-section" id="categories">
         <div class="container">
           <h2 class="section-title text-center">Nos catégories de services</h2>
@@ -309,6 +322,7 @@
 
       <!-- ===================== SECTION TÉMOIGNAGES ===================== -->
       <!-- animate-section : JS commit 7 animera cette section au scroll -->
+      <!-- Section de témoignages utilisants le carousel Bootstrap -->
       <section class="testimonials-section animate-section" id="temoignages">
         <div class="container">
           <h2 class="section-title text-center">Ce que disent nos membres</h2>
@@ -457,6 +471,7 @@
 
       <!-- ===================== SECTION CTA ===================== -->
       <!-- animate-section : JS commit 7 animera cette section au scroll -->
+      <!-- Section d'appel à l'action invitant l'utilisateur à contacter AfriTalent -->
       <section class="cta-section animate-section" id="cta">
         <div class="container text-center">
           <h2>Prêt à rejoindre la communauté AfriTalent ?</h2>
@@ -473,6 +488,7 @@
     </main>
 
     <!-- ===================== FOOTER ===================== -->
+    <!-- Pied de page du site avec marque, liens utiles et coordonnées de contact -->
     <footer class="site-footer">
       <div class="container">
         <div class="row g-4">
@@ -520,6 +536,7 @@
           </div>
 
           <!-- Colonne 3 : Ressources -->
+          <!-- CORRECTION : rôle cohérent avec une plateforme tech -->
           <div class="col-lg-3 col-md-6">
             <h4 class="footer-title">Ressources</h4>
             <ul class="footer-links">
@@ -533,6 +550,7 @@
 
           <!-- Colonne 4 : Contact -->
           <div class="col-lg-3 col-md-6">
+            <!--- CORRECTION : rôle cohérent avec une plateforme tech -->
             <h4 class="footer-title">Contact</h4>
             <ul class="footer-contact">
               <li>
@@ -566,9 +584,9 @@
       <i class="bi bi-arrow-up" aria-hidden="true"></i>
     </button>
 
-    <!-- Bootstrap 5 via CDN : script JavaScript -->
+    <!-- Script Bootstrap : nécessaire pour les composants interactifs comme le carousel -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Votre script JavaScript -->
+    <!-- Script JavaScript principal du site -->
     <script src="js/main.js"></script>
   </body>
 </html>

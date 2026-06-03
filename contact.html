@@ -102,23 +102,48 @@
       </section>
 
       <!-- ===================== FORMULAIRE + INFOS DE CONTACT ===================== -->
-      <!-- animate-section : JS commit 7 animera cette section au scroll -->
+      <!-- 
+        Section principale avec formulaire de contact et informations de l'entreprise
+        - animate-section: JS commit 7 animera cette section au scroll
+        - Layout 2 colonnes: formulaire (70%) et infos de contact (30%)
+      -->
       <section class="contact-section animate-section">
         <div class="container">
+          <!-- 
+            Grille 2 colonnes avec espacement
+            - row g-5: Espacement entre les colonnes
+            - col-lg-7 + col-lg-5: Proportions 70% / 30%
+          -->
           <div class="row g-5">
-            <!-- Formulaire de contact -->
+            <!-- ===== COLONNE 1: FORMULAIRE DE CONTACT ===== -->
+            <!-- Formulaire permettant aux utilisateurs d'envoyer des messages -->
             <div class="col-lg-7">
               <div class="contact-form-wrapper">
                 <h2>Envoyer un message</h2>
 
-                <!-- Formulaire (validation JS au commit 8) -->
+                <!-- 
+                  Formulaire de contact avec validation Bootstrap
+                  - novalidate: Bootstrap gère la validation (pas le navigateur)
+                  - id="contactForm": Cible pour le JavaScript de validation
+                -->
                 <form id="contactForm" novalidate>
-                  <!-- Nom et Prénom -->
+                  <!-- ===== LIGNE 1: Nom et Prénom ===== -->
+                  <!-- 
+                    Deux champs sur la même ligne
+                    - col-md-6: Chaque champ prend 50% sur md et plus
+                    - row g-3: Grille interne avec gap de 3
+                  -->
                   <div class="row g-3 mb-3">
+                    <!-- CHAMP: Nom -->
                     <div class="col-md-6">
                       <label for="nom" class="form-label"
                         >Nom <span aria-hidden="true">*</span></label
                       >
+                      <!-- 
+                        Champ texte pour le nom
+                        - required: Champ obligatoire (validation HTML5 + Bootstrap)
+                        - aria-required="true": Indique aux lecteurs d'écran que le champ est requis
+                      -->
                       <input
                         type="text"
                         class="form-control"
@@ -128,13 +153,19 @@
                         required
                         aria-required="true"
                       />
-                      <!-- Message d'erreur (affiché par JS au commit 8) -->
+                      <!-- 
+                        Message d'erreur dynamique
+                        - id="nom-error": Cible pour mettre à jour le message d'erreur
+                        - role="alert": Annonce l'erreur aux lecteurs d'écran
+                      -->
                       <div
                         class="invalid-feedback"
                         id="nom-error"
                         role="alert"
                       ></div>
                     </div>
+
+                    <!-- CHAMP: Prénom -->
                     <div class="col-md-6">
                       <label for="prenom" class="form-label"
                         >Prénom <span aria-hidden="true">*</span></label
@@ -156,7 +187,11 @@
                     </div>
                   </div>
 
-                  <!-- Email -->
+                  <!-- ===== CHAMP: Email ===== -->
+                  <!-- 
+                    Champ email avec validation type="email"
+                    - type="email": Validation format email native HTML5 + Bootstrap
+                  -->
                   <div class="mb-3">
                     <label for="email" class="form-label"
                       >Email <span aria-hidden="true">*</span></label
@@ -177,7 +212,11 @@
                     ></div>
                   </div>
 
-                  <!-- Sujet -->
+                  <!-- ===== CHAMP: Sujet (Dropdown) ===== -->
+                  <!-- 
+                    Sélecteur de catégorie pour orienter la demande
+                    - form-select: Classe Bootstrap pour les dropdowns
+                  -->
                   <div class="mb-3">
                     <label for="sujet" class="form-label"
                       >Sujet <span aria-hidden="true">*</span></label
@@ -189,9 +228,11 @@
                       required
                       aria-required="true"
                     >
+                      <!-- Option par défaut (placeholder) -->
                       <option value="" disabled selected>
                         Choisissez un sujet
                       </option>
+                      <!-- Options de catégories de demandes -->
                       <option value="inscription">Inscription / Compte</option>
                       <option value="mission">Trouver une mission</option>
                       <option value="paiement">Paiement / Facturation</option>
@@ -206,7 +247,12 @@
                     ></div>
                   </div>
 
-                  <!-- Message -->
+                  <!-- ===== CHAMP: Message ===== -->
+                  <!-- 
+                    Textarea pour le message détaillé
+                    - minlength="20": Validation - minimum 20 caractères
+                    - rows="6": Hauteur initiale de 6 lignes
+                  -->
                   <div class="mb-4">
                     <label for="message" class="form-label"
                       >Message <span aria-hidden="true">*</span></label
@@ -228,13 +274,23 @@
                     ></div>
                   </div>
 
-                  <!-- Bouton d'envoi -->
+                  <!-- ===== BOUTON D'ENVOI ===== -->
+                  <!-- 
+                    Bouton de soumission du formulaire
+                    - w-100: Largeur 100% du conteneur
+                    - btn-lg: Taille grande
+                  -->
                   <button type="submit" class="btn btn-primary btn-lg w-100">
                     <i class="bi bi-send-fill me-2" aria-hidden="true"></i>
                     Envoyer le message
                   </button>
 
-                  <!-- Message de succès (affiché par JS après soumission) -->
+                  <!-- 
+                    Message de succès (affiché après validation)
+                    - role="status": Annonce le statut du formulaire
+                    - aria-live="polite": Met à jour les lecteurs d'écran poliment
+                    - style="display: none": Caché par défaut, affiché par JS après envoi
+                  -->
                   <div
                     class="success-message"
                     id="successMessage"
@@ -250,12 +306,24 @@
               </div>
             </div>
 
-            <!-- Informations de contact -->
+            <!-- ===== COLONNE 2: INFORMATIONS DE CONTACT ===== -->
+            <!-- 
+              Affichage des coordonnées et localisation de l'entreprise
+              - aside: Contenu secondaire/complémentaire
+            -->
             <aside class="col-lg-5">
               <div class="contact-info-wrapper">
                 <h2>Nos coordonnées</h2>
+
+                <!-- 
+                  Liste d'informations de contact
+                  - contact-info-list: Classe pour les styles
+                  - Chaque élément contient une icône, un titre et des détails
+                -->
                 <ul class="contact-info-list">
+                  <!-- CONTACT: Adresse physique -->
                   <li>
+                    <!-- Icône de localisation -->
                     <i
                       class="bi bi-geo-alt-fill contact-icon"
                       aria-hidden="true"
@@ -265,6 +333,8 @@
                       <p>12 Avenue Cheikh Anta Diop<br />Dakar, Sénégal</p>
                     </div>
                   </li>
+
+                  <!-- CONTACT: Téléphone -->
                   <li>
                     <i
                       class="bi bi-telephone-fill contact-icon"
@@ -275,6 +345,8 @@
                       <p>+221 71 004 38 40</p>
                     </div>
                   </li>
+
+                  <!-- CONTACT: Email -->
                   <li>
                     <i
                       class="bi bi-envelope-fill contact-icon"
@@ -285,6 +357,8 @@
                       <p>contact@afritalent.africa</p>
                     </div>
                   </li>
+
+                  <!-- CONTACT: Horaires d'ouverture -->
                   <li>
                     <i
                       class="bi bi-clock-fill contact-icon"
@@ -300,7 +374,13 @@
                   </li>
                 </ul>
 
-                <!-- Carte Google Maps intégrée -->
+                <!-- ===== CARTE GOOGLE MAPS ===== -->
+                <!-- 
+                  Carte intégrée montrant la localisation du bureau
+                  - loading="lazy": Chargement lazy pour performance
+                  - allowfullscreen: Permet le plein écran
+                  - title: Accessibilité - description de la carte
+                -->
                 <div class="map-wrapper">
                   <iframe
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3859.3!2d-17.4473!3d14.6937!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTTCsDQxJzM3LjMiTiAxN8KwMjYnNTAuMyJX!5e0!3m2!1sfr!2ssn!4v1234567890"
@@ -321,6 +401,7 @@
     </main>
 
     <!-- ===================== FOOTER ===================== -->
+    <!-- Pied de page standard du site, avec partenariat et contact global -->
     <footer class="site-footer">
       <div class="container">
         <div class="row g-4">

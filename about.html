@@ -100,6 +100,7 @@
 
       <!-- ===================== SECTION NOTRE HISTOIRE ===================== -->
       <!-- animate-section : JS commit 7 animera cette section au scroll -->
+      <!-- Section qui raconte la création et l'ambition d'AfriTalent -->
       <section class="history-section animate-section">
         <div class="container">
           <div class="row align-items-center g-5">
@@ -135,27 +136,51 @@
       </section>
 
       <!-- ===================== SECTION L'ÉQUIPE ===================== -->
-      <!-- animate-section : JS commit 7 animera cette section au scroll -->
+      <!-- 
+        Section présentant l'équipe fondatrice et responsables clés
+        - animate-section: JS commit 7 animera cette section au scroll
+        - Affiche les 4 membres principaux avec photos, rôles et réseaux sociaux
+      -->
       <section class="team-section animate-section mt-4">
         <div class="container">
+          <!-- Titre et sous-titre de la section -->
           <h2 class="section-title text-center">Notre équipe</h2>
           <p class="section-subtitle text-center">
             Des personnes passionnées, unies par la même vision pour l'Afrique
             numérique.
           </p>
 
+          <!-- 
+            Grille des cartes d'équipe
+            - col-lg-3 col-md-6: 4 colonnes sur desktop, 2 sur tablette, 1 sur mobile
+            - justify-content-center: Centre les cartes
+            - g-4: Gap de 4 entre les colonnes
+          -->
           <div class="row g-4 justify-content-center">
-            <!-- Membre 1 -->
+            <!-- ===== MEMBRE 1: CEO ===== -->
+            <!-- 
+              Carte d'équipe avec photo, nom, rôle et liens sociaux
+              - team-card: Classe pour les styles de carte d'équipe
+              - card text-center: Composant Bootstrap centré
+            -->
             <div class="col-lg-3 col-md-6">
               <article class="team-card card text-center">
                 <div class="card-body">
+                  <!-- Photo du membre d'équipe -->
                   <img
                     src="images/pexels-pavel-danilyuk-7654411.jpg"
                     alt="Photo de Mamadou Sarr, CEO et cofondateur d'AfriTalent"
                     class="team-avatar"
                   />
+                  <!-- Nom du membre -->
                   <h3 class="card-title">Mamadou Sarr</h3>
+                  <!-- Titre/rôle du membre -->
                   <p class="team-role">CEO & Co-fondateur</p>
+                  <!-- 
+                    Liens vers réseaux sociaux
+                    - aria-hidden="true": Les icônes sont décoratives
+                    - aria-label: Donne un label aux liens pour l'accessibilité
+                  -->
                   <div class="team-socials">
                     <a href="#" aria-label="LinkedIn de Mamadou Sarr"
                       ><i class="bi bi-linkedin" aria-hidden="true"></i
@@ -168,7 +193,7 @@
               </article>
             </div>
 
-            <!-- Membre 2 -->
+            <!-- ===== MEMBRE 2: CTO ===== -->
             <div class="col-lg-3 col-md-6">
               <article class="team-card card text-center">
                 <div class="card-body">
@@ -191,7 +216,7 @@
               </article>
             </div>
 
-            <!-- Membre 3 -->
+            <!-- ===== MEMBRE 3: DIRECTEUR PRODUIT ===== -->
             <div class="col-lg-3 col-md-6">
               <article class="team-card card text-center">
                 <div class="card-body">
@@ -214,7 +239,7 @@
               </article>
             </div>
 
-            <!-- Membre 4 -->
+            <!-- ===== MEMBRE 4: DIRECTRICE MARKETING ===== -->
             <div class="col-lg-3 col-md-6">
               <article class="team-card card text-center">
                 <div class="card-body">
@@ -241,17 +266,34 @@
       </section>
 
       <!-- ===================== SECTION NOS VALEURS ===================== -->
-      <!-- animate-section : JS commit 7 animera cette section au scroll -->
+      <!-- 
+        Section présentant les 4 valeurs fondamentales d'AfriTalent
+        - animate-section: JS commit 7 animera cette section au scroll
+        - Affiche les valeurs avec icônes et descriptions courtes
+      -->
       <section class="values-section animate-section mt-4">
         <div class="container">
+          <!-- Titre et sous-titre -->
           <h2 class="section-title text-center">Nos valeurs</h2>
           <p class="section-subtitle text-center">
             Les principes qui guident chacune de nos décisions.
           </p>
 
+          <!-- 
+            Grille des cartes de valeurs
+            - col-lg-3 col-md-6: 4 colonnes sur desktop, 2 sur tablette, 1 sur mobile
+            - g-4: Gap de 4 entre les colonnes
+          -->
           <div class="row g-4">
+            <!-- ===== VALEUR 1: INNOVATION ===== -->
+            <!-- Carte affichant une valeur avec icône, titre et description -->
             <div class="col-lg-3 col-md-6">
               <article class="value-card text-center">
+                <!-- 
+                  Icône de la valeur
+                  - value-icon: Classe pour le style
+                  - aria-hidden="true": L'icône est décoratives
+                -->
                 <i
                   class="bi bi-lightbulb-fill value-icon"
                   aria-hidden="true"
@@ -264,6 +306,8 @@
                 </p>
               </article>
             </div>
+
+            <!-- ===== VALEUR 2: ACCESSIBILITÉ ===== -->
             <div class="col-lg-3 col-md-6">
               <article class="value-card text-center">
                 <i
@@ -278,6 +322,8 @@
                 </p>
               </article>
             </div>
+
+            <!-- ===== VALEUR 3: COMMUNAUTÉ ===== -->
             <div class="col-lg-3 col-md-6">
               <article class="value-card text-center">
                 <i class="bi bi-people-fill value-icon" aria-hidden="true"></i>
@@ -288,6 +334,8 @@
                 </p>
               </article>
             </div>
+
+            <!-- ===== VALEUR 4: EXCELLENCE ===== -->
             <div class="col-lg-3 col-md-6">
               <article class="value-card text-center">
                 <i class="bi bi-trophy-fill value-icon" aria-hidden="true"></i>
@@ -304,28 +352,62 @@
       </section>
 
       <!-- ===================== SECTION CHIFFRES CLÉS EN BENTO GRID ===================== -->
-      <!-- animate-section : JS commit 7 animera cette section au scroll -->
+      <!-- 
+        Section affichant les statistiques clés d'AfriTalent
+        - animate-section: JS commit 7 animera cette section au scroll
+        - bento-grid: Grille CSS custom avec des éléments de différentes tailles
+        - Les chiffres s'animent au défilement grâce au JavaScript (data-target)
+      -->
       <section class="key-numbers-section animate-section">
         <div class="container">
+          <!-- Titre de la section -->
           <h2 class="section-title text-center">Nos chiffres clés</h2>
 
-          <!-- Bento Grid pour les chiffres -->
+          <!-- 
+            Grille bento avec statistiques animées
+            - bento-grid: Classe pour la disposition CSS grid
+            - bento-numbers: Variante spécifique pour les nombres
+            - bento-large: Classe optionnelle pour agrandir un élément
+          -->
           <div class="bento-grid bento-numbers">
+            <!-- ===== STATUT 1: FREELANCES ===== -->
+            <!-- 
+              Carte statistique avec compteur animé
+              - data-target="2500": Valeur cible pour l'animation du compteur
+              - .stat-number: Élément contenant le nombre animé
+            -->
             <div class="bento-card text-center">
+              <!-- Icône de la statistique -->
               <i class="bi bi-people-fill bento-icon" aria-hidden="true"></i>
+              <!-- 
+                Nombre à animer
+                - data-target: Valeur finale du compteur
+                - Commence à 0 et s'anime jusqu'à la valeur cible
+              -->
               <span class="stat-number" data-target="2500">0</span>
+              <!-- Étiquette descriptive -->
               <span class="stat-label">Freelances inscrits</span>
             </div>
+
+            <!-- ===== STATUT 2: MISSIONS ===== -->
+            <!-- 
+              Élément agrandit dans la grille bento
+              - bento-large: Rend cette carte plus grande
+            -->
             <div class="bento-card text-center bento-large">
               <i class="bi bi-briefcase-fill bento-icon" aria-hidden="true"></i>
               <span class="stat-number" data-target="12000">0</span>
               <span class="stat-label">Missions réalisées</span>
             </div>
+
+            <!-- ===== STATUT 3: ENTREPRISES ===== -->
             <div class="bento-card text-center">
               <i class="bi bi-building bento-icon" aria-hidden="true"></i>
               <span class="stat-number" data-target="800">0</span>
               <span class="stat-label">Entreprises clientes</span>
             </div>
+
+            <!-- ===== STATUT 4: PAYS ===== -->
             <div class="bento-card text-center">
               <i class="bi bi-globe-africa bento-icon" aria-hidden="true"></i>
               <span class="stat-number" data-target="18">0</span>
@@ -337,6 +419,7 @@
     </main>
 
     <!-- ===================== FOOTER ===================== -->
+    <!-- Pied de page commun avec liens utiles et contact, présent sur toutes les pages du site -->
     <footer class="site-footer">
       <div class="container">
         <div class="row g-4">

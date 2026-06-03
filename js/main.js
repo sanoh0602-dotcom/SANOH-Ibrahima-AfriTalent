@@ -3,7 +3,11 @@
    Commit 6 : Dark mode + localStorage, Navbar dynamique,
                Bouton retour en haut, Année dynamique
    ============================================================ */
-
+/*
+   Ce fichier contient la logique JavaScript partagée par toutes les
+   pages du site : navigation, thème sombre, animation au scroll,
+   boutons interactifs et formulaires.
+*/
 
 /* ============================================================
    1. ANNÉE DYNAMIQUE DANS LE FOOTER
@@ -865,3 +869,68 @@ if (contactForm) {
 } /* fin de la validation du formulaire */
 
 
+/* ============================================================
+   MODAL PROFIL FREELANCE
+   À COLLER À LA FIN DE TON main.js
+   ============================================================ */
+
+/*
+   On récupère le modal par son id="profileModal".
+   Ce modal existe seulement sur freelances.html.
+   Si on est sur une autre page → profileModal = null → on ne fait rien.
+*/
+const profileModal = document.getElementById('profileModal');
+
+if (profileModal) {
+
+  /*
+     Événement 'show.bs.modal'
+     → se déclenche JUSTE AVANT que le modal s'ouvre.
+     C'est le bon moment pour mettre à jour son contenu.
+
+     event.relatedTarget
+     → c'est le BOUTON "Voir le profil" qui a été cliqué.
+     On peut lire ses data-nom, data-photo, data-tarif...
+  */
+  profileModal.addEventListener('show.bs.modal', function (event) {
+
+    /* Le bouton cliqué */
+    const bouton = event.relatedTarget;
+
+    /* Lecture des informations depuis les attributs data- */
+    const nom        = bouton.getAttribute('data-nom');
+    const specialite = bouton.getAttribute('data-specialite');
+    const tarif      = bouton.getAttribute('data-tarif');
+    const note       = bouton.getAttribute('data-note');
+    const bio        = bouton.getAttribute('data-bio');
+    const photo      = bouton.getAttribute('data-photo');
+
+    /* Mise à jour du titre du modal */
+    document.getElementById('profileModalLabel').textContent = 'Profil de ' + nom;
+
+    /* Mise à jour de la photo */
+    const photoEl = document.getElementById('modal-photo');
+    if (photoEl) {
+      photoEl.src = photo;
+      photoEl.alt = 'Photo de ' + nom;
+    }
+
+    /* Mise à jour du nom */
+    document.getElementById('modal-nom').textContent = nom;
+
+    /* Mise à jour de la spécialité */
+    document.getElementById('modal-specialite').textContent = specialite;
+
+    /* Mise à jour du tarif */
+    document.getElementById('modal-tarif-valeur').textContent = tarif;
+
+    /* Mise à jour de la note */
+    document.getElementById('modal-note').textContent = '⭐ Note : ' + note;
+
+    /* Mise à jour de la biographie */
+    document.getElementById('modal-bio').textContent = bio;
+  });
+}
+/* ============================================================
+   FIN DU CODE MODAL
+   ============================================================ */

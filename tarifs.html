@@ -4,26 +4,27 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>AfriTalent — Tarifs</title>
-    <!-- Google Fonts -->
+    <!-- Google Fonts : import des polices utilisées pour titres et texte -->
     <link
       href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Inter:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
-    <!-- Bootstrap Icons -->
+    <!-- Bootstrap Icons : ensemble d'icônes vectorielles pour les listes et boutons -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
       rel="stylesheet"
     />
-    <!-- Bootstrap 5 via CDN : feuille de style -->
+    <!-- Bootstrap 5 via CDN : styles de base et classes utilitaires Bootstrap -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
       rel="stylesheet"
     />
-    <!-- Votre feuille de style personnelle -->
+    <!-- Feuille de style personnalisée pour les styles spécifiques AfriTalent -->
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
     <!-- ===================== NAVBAR ===================== -->
+    <!-- Barre de navigation fixe en haut, avec lien vers les pages principales et actions utilisateur -->
     <header>
       <nav class="navbar navbar-expand-lg fixed-top" id="navbar">
         <div class="container">
@@ -73,6 +74,7 @@
                 <a class="nav-link" href="contact.html">Contact</a>
               </li>
             </ul>
+            <!-- Bouton de bascule mode sombre, géré par le script principal -->
             <button
               class="btn btn-outline-secondary ms-3"
               id="darkModeToggle"
@@ -80,6 +82,7 @@
             >
               <i class="bi bi-moon-fill"></i>
             </button>
+            <!-- Bouton d'appel à l'action pour rejoindre la plateforme -->
             <a href="freelances.html" class="btn btn-primary ms-3"
               >Rejoindre AfriTalent</a
             >
@@ -91,6 +94,7 @@
     <main>
       <!-- ===================== EN-TÊTE DE PAGE ===================== -->
       <!-- animate-section : JS commit 7 animera cette section au scroll -->
+      <!-- Section de titre principale pour la page de tarifs -->
       <section class="page-header animate-section">
         <div class="container text-center">
           <h1>Nos tarifs</h1>
@@ -99,27 +103,48 @@
       </section>
 
       <!-- ===================== PLANS TARIFAIRES ===================== -->
-      <!-- animate-section : JS commit 7 animera cette section au scroll -->
+      <!-- 
+      Section des trois plans tarifaires proposés par AfriTalent
+      - animate-section: JS commit 7 animera cette section au scroll
+      - row g-4 align-items-stretch: Grille responsive avec hauteur égale pour tous les plans
+      - justify-content-center: Centre les cartes si la résolution est très large
+    -->
       <section class="pricing-section animate-section">
         <div class="container">
-          <!-- CORRECTION : h2 maintenant DANS le container + class section-title -->
+          <!-- Titre de la section -->
           <h2 class="section-title text-center">
             Choisissez le plan qui vous convient
           </h2>
+
+          <!-- 
+          Grille des plans tarifaires
+          - col-lg-4 col-md-6: 3 colonnes sur desktop, 2 sur tablette, 1 sur mobile
+          - align-items-stretch: Tous les plans ont la même hauteur
+        -->
           <div class="row g-4 justify-content-center align-items-stretch">
-            <!-- Plan Gratuit -->
+            <!-- ===== PLAN 1: GRATUIT ===== -->
+            <!-- Carte tarifaire pour l'offre gratuite avec fonctionnalités de base -->
             <div class="col-lg-4 col-md-6">
               <article class="pricing-card card h-100">
+                <!-- En-tête du plan: nom et prix -->
                 <div class="card-header text-center">
-                  <!-- CORRECTION : h3 au lieu de h2 -->
+                  <!-- Nom du plan - h3 pour la sémantique -->
                   <h3 class="plan-name">Gratuit</h3>
+                  <!-- Affichage du prix de manière structurée -->
                   <div class="plan-price">
                     <span class="price">0</span>
                     <span class="currency">FCFA</span>
                     <span class="period">/ mois</span>
                   </div>
                 </div>
+
+                <!-- Corps du plan: liste des fonctionnalités -->
                 <div class="card-body">
+                  <!-- 
+                  Liste des fonctionnalités avec classes feature-ok/feature-no
+                  - feature-ok: Fonctionnalité incluse (icône checkmark)
+                  - feature-no: Fonctionnalité non incluse (icône X)
+                -->
                   <ul class="plan-features">
                     <li class="feature-ok">
                       <i class="bi bi-check-circle-fill" aria-hidden="true"></i>
@@ -155,6 +180,8 @@
                     </li>
                   </ul>
                 </div>
+
+                <!-- Pied du plan: bouton d'action -->
                 <div class="card-footer text-center">
                   <a href="contact.html" class="btn btn-outline-primary w-100"
                     >Commencer gratuitement</a
@@ -163,19 +190,27 @@
               </article>
             </div>
 
-            <!-- Plan Pro (recommandé) -->
+            <!-- ===== PLAN 2: PRO (RECOMMANDÉ) ===== -->
+            <!-- Carte tarifaire du plan Pro - mise en avant comme option la plus populaire -->
             <div class="col-lg-4 col-md-6">
+              <!-- 
+              pricing-popular: Classe spéciale pour mettre en avant ce plan
+              Visuellement plus grand ou avec une couleur de fond différente
+            -->
               <article class="pricing-card pricing-popular card h-100">
                 <div class="card-header text-center">
+                  <!-- Badge populaire pour indiquer que c'est le plan recommandé -->
                   <span class="badge-popular">⭐ Populaire</span>
-                  <!-- CORRECTION : h3 au lieu de h2 -->
+                  <!-- Nom du plan -->
                   <h3 class="plan-name">Pro</h3>
+                  <!-- Prix du plan -->
                   <div class="plan-price">
                     <span class="price">9 900</span>
                     <span class="currency">FCFA</span>
                     <span class="period">/ mois</span>
                   </div>
                 </div>
+
                 <div class="card-body">
                   <ul class="plan-features">
                     <li class="feature-ok">
@@ -212,7 +247,9 @@
                     </li>
                   </ul>
                 </div>
+
                 <div class="card-footer text-center">
+                  <!-- Bouton CTA primary pour le plan recommandé -->
                   <a href="contact.html" class="btn btn-primary w-100"
                     >Choisir Pro</a
                   >
@@ -220,18 +257,21 @@
               </article>
             </div>
 
-            <!-- Plan Entreprise -->
+            <!-- ===== PLAN 3: ENTREPRISE ===== -->
+            <!-- Carte tarifaire de l'offre Entreprise avec fonctionnalités avancées -->
             <div class="col-lg-4 col-md-6">
               <article class="pricing-card card h-100">
                 <div class="card-header text-center">
-                  <!-- CORRECTION : h3 au lieu de h2 -->
+                  <!-- Nom du plan -->
                   <h3 class="plan-name">Entreprise</h3>
+                  <!-- Prix du plan (le plus haut) -->
                   <div class="plan-price">
                     <span class="price">49 900</span>
                     <span class="currency">FCFA</span>
                     <span class="period">/ mois</span>
                   </div>
                 </div>
+
                 <div class="card-body">
                   <ul class="plan-features">
                     <li class="feature-ok">
@@ -281,6 +321,7 @@
 
       <!-- ===================== FAQ EN ACCORDION ===================== -->
       <!-- animate-section : JS commit 7 animera cette section au scroll -->
+      <!-- Section FAQ utilisant l'accordéon Bootstrap pour ouvrir/fermer les réponses -->
       <section class="faq-section animate-section mt-5">
         <div class="container">
           <h2 class="section-title text-center">Questions fréquentes</h2>
@@ -451,6 +492,7 @@
     </main>
 
     <!-- ===================== FOOTER ===================== -->
+    <!-- Pied de page du site : marque, liens et contact -->
     <footer class="site-footer">
       <div class="container">
         <div class="row g-4">
@@ -529,10 +571,12 @@
       </div>
     </footer>
 
+    <!-- Bouton fixe en bas à droite qui remonte l'utilisateur en haut de la page -->
     <button id="backToTop" aria-label="Retour en haut de page">
       <i class="bi bi-arrow-up" aria-hidden="true"></i>
     </button>
 
+    <!-- Scripts : Bootstrap pour le composant accordéon, puis logique JavaScript commune au site -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="js/main.js"></script>
   </body>
